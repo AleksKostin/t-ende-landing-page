@@ -1,0 +1,47 @@
+:root {
+  --font-family-main: 'Montserrat Regular', sans-serif;
+  --font-family-main-medium: 'Montserrat Medium', sans-serif;
+  --font-family-main-bold: 'Montserrat SemiBold', sans-serif;
+  --font-family-hind: 'Hind', 'sans-serif';
+  --font-family-hind-medium: 'Hind Medium', sans-serif;
+  --font-family-ibm-medium: 'IBMPlexSerif Medium', serif;
+
+  // Font Montserrat
+  --font-mon-size-m: 16px;
+  --font-mon-line-m: 24px;
+  --font-mon-m: var(--font-mon-size-m) / var(--font-mon-line-m) var(--font-family-main);
+  --font-mon-medium-m: var(--font-mon-size-m) / var(--font-mon-line-m) var(--font-family-main-medium);
+  --font-mon-bold-m: var(--font-mon-size-m) / var(--font-mon-line-m) var(--font-family-main-bold);
+  --font-mon-size-l: 24px;
+  --font-mon-line-l: 32px;
+  --font-mon-l: var(--font-mon-size-l) / var(--font-mon-line-l) var(--font-family-main);
+  --font-mon-bold-l: var(--font-mon-size-l) / var(--font-mon-line-l) var(--font-family-main-bold);
+  --font-mon-size-xl: 30px;
+  --font-mon-line-xl: 38px;
+  --font-mon-medium-xl: var(--font-mon-size-xl) / var(--font-mon-line-xl) var(--font-family-main-medium);
+
+  // Font Hind
+  --font-hin-size-m: 16px;
+  --font-hin-line-m: 24px;
+  --font-hin-m: var(--font-hin-size-m) / var(--font-hin-line-m) var(--font-family-hind);
+  --font-hin-size-l: 24px;
+  --font-hin-line-l: 32px;
+  --font-hin-l: var(--font-hin-size-l) / var(--font-hin-line-l) var(--font-family-hind);
+  --font-hin-medium-l: var(--font-hin-size-l) / var(--font-hin-line-l) var(--font-family-hind-medium);
+  --font-hin-size-xl: 64px;
+  --font-hin-line-xl: 72px;
+  --font-hin-medium-xl: var(--font-hin-size-xl) / var(--font-hin-line-xl) var(--font-family-hind-medium);
+
+  // Font IBM Plex Serif
+  --font-ibm-size-xl: 64px;
+  --font-ibm-line-xl: 72px;
+  --font-ibm-medium-xl: var(--font-ibm-size-xl) / var(--font-ibm-line-xl) var(--font-family-ibm-medium);
+
+  // Colors
+  --bg-color: #F8FCFD;
+  --primary-color: #333;
+
+  // Sizes
+  --navbar-height: 120px;
+
+}

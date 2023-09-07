@@ -1,1 +1,6 @@
-{ "extends": ["stylelint-config-standard"] }
+{ "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "selector-class-pattern": null,
+    "media-feature-name-disallowed-list": ["/^min-/", "/^max-/"]
+  }
+}

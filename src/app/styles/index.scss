@@ -1,8 +1,24 @@
+@import "./variables/global";
+@import './_mixins/fonts';
+
 body {
   margin: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-family-main);
   font-size: 16px;
   font-weight: 400;
-  color: #333;
-  background-color: #F8FCFD;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+  width: 100%;
+  overflow-x: hidden;
 }
+
+.container {
+  max-width: 1280px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// @media (min-width: )
+

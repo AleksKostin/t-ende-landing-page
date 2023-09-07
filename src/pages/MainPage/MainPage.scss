@@ -1,0 +1,85 @@
+.main-intro {
+  width: 100%;
+  padding: 0;
+  background: url("../../assets/pictures/mainPageWoman.png") center center no-repeat;
+  background-size: cover;
+  transition: transform 2.5s;
+  height: calc(100vh - var(--navbar-height));
+  z-index: -1;
+  position: relative;
+  overflow-x: hidden;
+  transform: scale(1.5);
+}
+
+.main-loaded-intro {
+  transform: scale(1);
+}
+
+.main-arrow {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: jump 0.8s ease 1.5s infinite alternate;
+}
+
+.main-loaded-arrow {
+  opacity: 1;
+  transition: opacity 1.5s 3s;
+}
+
+@keyframes jump {
+  from {
+    bottom: 15px;
+  }
+
+  to {
+    bottom: 30px;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+.main-content h1 {
+  font: var(--font-ibm-medium-xl);
+  color: rgb(0 0 0 / 90%);
+  margin-top: 25vh;
+  margin-bottom: 20px;
+}
+
+.main-content h2 {
+  font: var(--font-mon-bold-l);
+  color: rgb(0 0 0 / 90%);
+  margin-top: 20px;
+}
+
+.main-content p {
+  font: var(--font-mon-l);
+  width: 455px;
+  line-height: 40px;
+  font-weight: 100;
+  white-space: pre-wrap;
+}
+
+.main-loaded-content {
+  animation: load 0.8s linear 1.5s 1 forwards;
+}
+
+@keyframes load {
+  from {
+    visibility: visible;
+    margin-top: 25px;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
