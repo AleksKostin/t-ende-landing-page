@@ -31,6 +31,7 @@
   --font-hind-size-xl: 48px;
   --font-hind-line-xl: 54px;
   --font-hind-medium-xl: var(--font-hind-size-xl) / var(--font-hind-line-xl) var(--font-family-hind-medium);
+  --font-hind-line-xxl: 72px;
 
   // Font IBM Plex Serif
   --font-ibm-size-xl: 64px;
@@ -38,14 +39,12 @@
   --font-ibm-medium-xl: var(--font-ibm-size-xl) / var(--font-ibm-line-xl) var(--font-family-ibm-medium);
 
   // Colors
-  --bg-color: #F8FCFD;
+  --bg-color: #f8fcfd;
   --primary-color: #333;
 
   // Sizes
   --navbar-height: 120px;
-  --navbar-link-margin-right: 75px;
+  --navbar-link-margin: 75px;
   --navbar-link-margin-left-right: 10px;
   --wrapper-padding: 15px;
-  
-
 }

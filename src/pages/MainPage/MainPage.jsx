@@ -42,51 +42,49 @@ const MainPage = (props) => {
   }
 
   return (
-    <div id="main-page">
-      <div className={classNames('main-intro', { 'main-loaded-intro': isLoaded })}>
-        <div className="content-wrapper">
-          <div
-            className={
+    <div id="main-page" className={classNames('main-intro', { 'main-intro_loaded': isLoaded })}>
+      <div className="content-wrapper">
+        <div
+          className={
               classNames(
                 'main-content',
                 { 'main-loaded-content': isLoaded },
               )
             }
+        >
+          <h1
+            className={classNames(
+              'main-content__title',
+              animationTurk,
+            )}
           >
-            <h1
-              className={classNames(
-                'main-content__title',
-                animationTurk,
-              )}
-            >
-              {t('greetingTurk')}
-            </h1>
-            <h2
-              className={classNames(
-                'main-content__subtitle',
-                animationTurk,
-              )}
-            >
-              {t('greetingRus')}
-            </h2>
-            <h1
-              className={classNames(
-                'main-content__title-rus',
-                animationRus,
-              )}
-            >
-              {t('greetingRusSpaces')}
-            </h1>
-            <p className="main-content__text">
-              {data ? data.paragraph : 'Loading...'}
-            </p>
-          </div>
-          <img
-            src={arrow}
-            alt="scroll to services"
-            className={classNames('main-arrow', { 'main-loaded-arrow': isLoaded })}
-          />
+            {t('greetingTurk')}
+          </h1>
+          <h2
+            className={classNames(
+              'main-content__subtitle',
+              animationTurk,
+            )}
+          >
+            {t('greetingRus')}
+          </h2>
+          <h1
+            className={classNames(
+              'main-content__title-rus',
+              animationRus,
+            )}
+          >
+            {t('greetingRusSpaces')}
+          </h1>
+          <p className="main-content__text">
+            {data ? data.paragraph : 'Loading...'}
+          </p>
         </div>
+        <img
+          src={arrow}
+          alt="scroll to services"
+          className={classNames('main-arrow', { 'main-arrow_loaded': isLoaded })}
+        />
       </div>
     </div>
   );

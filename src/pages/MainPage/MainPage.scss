@@ -1,7 +1,7 @@
 .main-intro {
   width: 100%;
   padding: 0;
-  background: url("../../assets/pictures/mainPageWoman.png") center center no-repeat;
+  background: url('/assets/pictures/mainPageWoman.png') top center no-repeat;
   background-size: cover;
   transition: transform 2.5s;
   height: calc(100vh - var(--navbar-height));
@@ -9,10 +9,10 @@
   position: relative;
   overflow-x: hidden;
   transform: scale(1.5);
-}
 
-.main-loaded-intro {
-  transform: scale(1);
+  &_loaded {
+    transform: scale(1);
+  }
 }
 
 .main-arrow {
@@ -23,11 +23,11 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: jump 0.8s ease 1.5s infinite alternate;
-}
 
-.main-loaded-arrow {
-  opacity: 1;
-  transition: opacity 1.5s 2.2s;
+  &_loaded {
+    opacity: 1;
+    transition: opacity 1.5s 2.2s;
+  }
 }
 
 @keyframes jump {
@@ -50,7 +50,7 @@
     color: rgb(0 0 0 / 90%);
     margin-top: 25vh;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 10px #fff;
+    text-shadow: 1px 1px 2px #fff;
     opacity: 0;
   }
 
@@ -79,28 +79,26 @@
     100% {
       opacity: 0;
       transition: opacity 1s;
-      transform: translate(150px, 0);
     }
   }
 
   @keyframes visible-title-turk {
     from {
       opacity: 0;
-      transform: translate(-150px, 0);
     }
 
     to {
       opacity: 1;
       transition: opacity 1s;
-      transform: translate(0,0);
     }
   }
 
   &__title-rus {
     font: var(--font-hind-medium-xl);
     color: rgb(0 0 0 / 90%);
-    margin-top: 30vh;
-    text-shadow: 2px 2px 8px #fff;
+    margin-top: 25vh;
+    line-height: var(--font-hind-line-xxl);
+    text-shadow: 1px 1px 2px #fff;
     opacity: 0;
     text-transform: uppercase;
     position: absolute;
@@ -123,19 +121,17 @@
     100% {
       opacity: 0;
       transition: opacity 1s;
-      transform: translate(150px, 0);
     }
   }
 
   @keyframes visible-title-ru {
     from {
-      transform: translate(-150px, 0);
+      opacity: 0;
     }
 
     to {
       opacity: 1;
       transition: opacity 1s;
-      transform: translate(0,0);
     }
   }
 

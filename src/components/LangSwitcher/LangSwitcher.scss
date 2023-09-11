@@ -1,11 +1,11 @@
 .lang-switcher {
   display: flex;
-  margin-left: 70px;
+  margin-left: var(--navbar-link-margin);
 }
 
 .lang-btn {
   font: var(--font-montserrat-medium-m);
-  color: #65AFC7;
+  color: #65afc7;
   padding: 0;
   border: none;
   background: none;
