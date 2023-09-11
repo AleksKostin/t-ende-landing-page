@@ -1,16 +1,28 @@
-.lng-switcher {
+.lang-switcher {
   display: flex;
+  margin-left: 70px;
 }
 
-.lng-btn {
-  font: var(--font-mon-medium-m);
+.lang-btn {
+  font: var(--font-montserrat-medium-m);
   color: #65AFC7;
   padding: 0;
   border: none;
   background: none;
   outline: none;
+
+  &:hover {
+    transform: perspective(10px) scale(1.1);
+    transition: transform 300ms;
+  }
 }
 
-.lng-link {
+.lang-link {
   margin-right: 20px;
+}
+
+@media (width < 1024px) {
+  .lang-switcher {
+    margin-left: 10px;
+  }
 }

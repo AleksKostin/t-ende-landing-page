@@ -5,11 +5,11 @@ const LangSwitcher = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="lng-switcher">
-      <button type="button" className="lng-btn lng-link">
+    <div className="lang-switcher">
+      <button type="button" className="lang-btn lang-link">
         {t('rus')}
       </button>
-      <button type="button" className="lng-btn">
+      <button type="button" className="lang-btn">
         {t('en')}
       </button>
     </div>

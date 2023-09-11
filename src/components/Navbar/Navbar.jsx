@@ -1,49 +1,47 @@
 import './Navbar.scss';
 import { useTranslation } from 'react-i18next';
-import lable from '../../assets/icons/lable.svg';
+import lable from 'assets/icons/lable.svg';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
 
 const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <div id="navbar">
-      <div className="container">
-        <div className="navbar-conteiner">
+    <div id="header" className="header-wrapper">
+      <div className="content-wrapper">
+        <div className="header__content">
           <img
             src={lable}
             alt="brand"
-            className="navbar-lable"
+            className="header__lable"
           />
-          <div className="navbar-links">
-            <button
-              className="navbar-btn navbar-link"
-              type="button"
+          <div className="header__links">
+            <a
+              href="#1"
+              className="header__a header__link"
             >
               {t('services')}
-            </button>
-            <button
-              className="navbar-btn navbar-link"
-              type="button"
+            </a>
+            <a
+              href="#1"
+              className="header__a header__link"
             >
               {t('articles')}
-            </button>
-            <button
-              className="navbar-btn navbar-link"
-              type="button"
+            </a>
+            <a
+              href="#1"
+              className="header__a header__link"
             >
               {t('aboutMe')}
-            </button>
-            <button
-              className="navbar-btn"
-              type="button"
+            </a>
+            <a
+              href="#1"
+              className="header__a"
             >
               {t('contacts')}
-            </button>
+            </a>
           </div>
-          <div className="navbar-lng">
-            <LangSwitcher />
-          </div>
+          <LangSwitcher />
         </div>
       </div>
     </div>

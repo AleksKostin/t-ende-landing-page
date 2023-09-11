@@ -28,7 +28,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'warn',
-    // 'import/no-unresolved': 0,
+    'import/no-unresolved': 'off',
     // 'import/extensions': 0,
   },
 };
