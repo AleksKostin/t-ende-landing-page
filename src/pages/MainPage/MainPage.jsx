@@ -18,11 +18,18 @@ const MainPage = (props) => {
   let animationRus;
 
   useEffect(() => {
-    const timerScale = setTimeout(() => setIsLoaded(() => true), ANIMATION_SCALED_DELAY);
-    const intervalSlider = setInterval(() => setIsVisible((prev) => !prev), ANIMATION_SLIDER_DELAY);
-    const timerStartSlider = setTimeout(() => (
-      setIsStartedSlider(() => true)
-    ), ANIMATION_START_SLIDER_DELAY);
+    const timerScale = setTimeout(
+      () => setIsLoaded(() => true),
+      ANIMATION_SCALED_DELAY,
+    );
+    const intervalSlider = setInterval(
+      () => setIsVisible((prev) => !prev),
+      ANIMATION_SLIDER_DELAY,
+    );
+    const timerStartSlider = setTimeout(
+      () => setIsStartedSlider(() => true),
+      ANIMATION_START_SLIDER_DELAY,
+    );
     return () => {
       clearTimeout(timerScale);
       clearInterval(intervalSlider);
@@ -42,48 +49,36 @@ const MainPage = (props) => {
   }
 
   return (
-    <div id="main-page" className={classNames('main-intro', { 'main-intro_loaded': isLoaded })}>
+    <div
+      id="main-page"
+      className={classNames('main-intro', { 'main-intro_loaded': isLoaded })}
+    >
       <div className="content-wrapper">
         <div
-          className={
-              classNames(
-                'main-content',
-                { 'main-loaded-content': isLoaded },
-              )
-            }
+          className={classNames('main-content', {
+            'main-loaded-content': isLoaded,
+          })}
         >
-          <h1
-            className={classNames(
-              'main-content__title',
-              animationTurk,
-            )}
-          >
+          <h1 className={classNames('main-content__title', animationTurk)}>
             {t('greetingTurk')}
           </h1>
-          <h2
-            className={classNames(
-              'main-content__subtitle',
-              animationTurk,
-            )}
-          >
+          <h2 className={classNames('main-content__subtitle', animationTurk)}>
             {t('greetingRus')}
           </h2>
-          <h1
-            className={classNames(
-              'main-content__title-rus',
-              animationRus,
-            )}
-          >
+          <h1 className={classNames('main-content__title-rus', animationRus)}>
             {t('greetingRusSpaces')}
           </h1>
           <p className="main-content__text">
-            {data ? data.paragraph : 'Loading...'}
+            {data ? data.paragraph : ''}
           </p>
         </div>
         <img
           src={arrow}
           alt="scroll to services"
-          className={classNames('main-arrow', { 'main-arrow_loaded': isLoaded })}
+          aria-hidden="true"
+          className={classNames('main-arrow', {
+            'main-arrow_loaded': isLoaded,
+          })}
         />
       </div>
     </div>

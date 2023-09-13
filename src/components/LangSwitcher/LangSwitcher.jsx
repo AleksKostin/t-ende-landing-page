@@ -6,7 +6,7 @@ const LangSwitcher = () => {
 
   return (
     <div className="lang-switcher">
-      <button type="button" className="lang-btn lang-link">
+      <button type="button" className="lang-btn">
         {t('rus')}
       </button>
       <button type="button" className="lang-btn">

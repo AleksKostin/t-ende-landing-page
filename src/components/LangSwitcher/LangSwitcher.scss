@@ -15,10 +15,10 @@
     transform: perspective(10px) scale(1.1);
     transition: transform 300ms;
   }
-}
 
-.lang-link {
-  margin-right: 20px;
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
 }
 
 @media (width < 1024px) {

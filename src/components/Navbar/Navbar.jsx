@@ -9,34 +9,18 @@ const Navbar = () => {
   return (
     <div id="header" className="header-wrapper">
       <div className="content-wrapper header__content">
-        <img
-          src={lable}
-          alt="brand"
-          className="header__lable"
-        />
+        <img src={lable} alt="brand" className="header__lable" />
         <div className="header__links">
-          <a
-            href="#1"
-            className="header__link"
-          >
+          <a href="#1" className="header__link">
             {t('services')}
           </a>
-          <a
-            href="#1"
-            className="header__link"
-          >
+          <a href="#1" className="header__link">
             {t('articles')}
           </a>
-          <a
-            href="#1"
-            className="header__link"
-          >
+          <a href="#1" className="header__link">
             {t('aboutMe')}
           </a>
-          <a
-            href="#1"
-            className="header__link"
-          >
+          <a href="#1" className="header__link">
             {t('contacts')}
           </a>
         </div>
