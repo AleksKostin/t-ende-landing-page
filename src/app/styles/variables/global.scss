@@ -1,0 +1,61 @@
+:root {
+  --font-family-main: 'Montserrat Regular', sans-serif; // font-weight: 400
+  --font-family-main-medium: 'Montserrat Medium', sans-serif; // font-weight: 500
+  --font-family-main-bold: 'Montserrat SemiBold', sans-serif; // font-weight: 600
+  --font-family-hind: 'Hind', 'sans-serif'; // font-weight: 400
+  --font-family-hind-medium: 'Hind Medium', sans-serif; // font-weight: 500
+  --font-family-ibm-medium: 'IBMPlexSerif Medium', serif; // font-weight: 500
+
+  // Font Montserrat
+  --font-montserrat-size-m: 16px; // font-size
+  --font-montserrat-line-m: 24px; // line-height
+  --font-montserrat-m: var(--font-montserrat-size-m) /
+    var(--font-montserrat-line-m) var(--font-family-main); // font: font-size/line-height font-family
+  --font-montserrat-medium-m: var(--font-montserrat-size-m) /
+    var(--font-montserrat-line-m) var(--font-family-main-medium);
+  --font-montserrat-bold-m: var(--font-montserrat-size-m) /
+    var(--font-montserrat-line-m) var(--font-family-main-bold);
+  --font-montserrat-size-l: 24px;
+  --font-montserrat-line-l: 32px;
+  --font-montserrat-l: var(--font-montserrat-size-l) /
+    var(--font-montserrat-line-l) var(--font-family-main);
+  --font-montserrat-bold-l: var(--font-montserrat-size-l) /
+    var(--font-montserrat-line-l) var(--font-family-main-bold);
+  --font-montserrat-size-xl: 30px;
+  --font-montserrat-line-xl: 38px;
+  --font-montserrat-medium-xl: var(--font-montserrat-size-xl) /
+    var(--font-montserrat-line-xl) var(--font-family-main-medium);
+
+  // Font Hind
+  --font-hind-size-m: 16px;
+  --font-hind-line-m: 24px;
+  --font-hind-m: var(--font-hind-size-m) / var(--font-hind-line-m)
+    var(--font-family-hind);
+  --font-hind-size-l: 24px;
+  --font-hind-line-l: 32px;
+  --font-hind-l: var(--font-hind-size-l) / var(--font-hind-line-l)
+    var(--font-family-hind);
+  --font-hind-medium-l: var(--font-hind-size-l) / var(--font-hind-line-l)
+    var(--font-family-hind-medium);
+  --font-hind-size-xl: 48px;
+  --font-hind-line-xl: 54px;
+  --font-hind-medium-xl: var(--font-hind-size-xl) / var(--font-hind-line-xl)
+    var(--font-family-hind-medium);
+  --font-hind-line-xxl: 72px;
+
+  // Font IBM Plex Serif
+  --font-ibm-size-xl: 64px;
+  --font-ibm-line-xl: 72px;
+  --font-ibm-medium-xl: var(--font-ibm-size-xl) / var(--font-ibm-line-xl)
+    var(--font-family-ibm-medium);
+
+  // Colors
+  --bg-color: #f8fcfd;
+  --primary-color: #333;
+
+  // Sizes
+  --navbar-height: 120px;
+  --navbar-link-margin: 75px;
+  --navbar-link-margin-left-right: 10px;
+  --wrapper-padding: 15px;
+}

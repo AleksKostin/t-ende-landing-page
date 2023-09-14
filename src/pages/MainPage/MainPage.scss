@@ -1,0 +1,162 @@
+.main-intro {
+  width: 100%;
+  padding: 0;
+  background: url('/assets/pictures/mainPageWoman.png') top center no-repeat;
+  background-size: cover;
+  transition: transform 2.5s;
+  height: calc(100vh - var(--navbar-height));
+  z-index: -1;
+  position: relative;
+  overflow-x: hidden;
+  transform: scale(1.5);
+
+  &_loaded {
+    transform: scale(1);
+  }
+}
+
+.main-arrow {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: jump 0.8s ease 1.5s infinite alternate;
+
+  &_loaded {
+    opacity: 1;
+    transition: opacity 1.5s 2.2s;
+  }
+}
+
+@keyframes jump {
+  from {
+    bottom: 15px;
+  }
+
+  to {
+    bottom: 30px;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+
+  &__title {
+    font: var(--font-ibm-medium-xl);
+    color: rgb(0 0 0 / 90%);
+    margin-top: 25vh;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #fff;
+    opacity: 0;
+  }
+
+  &__subtitle {
+    font: var(--font-montserrat-bold-l);
+    color: rgb(0 0 0 / 90%);
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px #fff;
+    opacity: 0;
+    text-transform: uppercase;
+  }
+
+  &__hidden-title-turk {
+    animation: hide-title-turk 1s linear forwards;
+  }
+
+  &__visibility-title-turk {
+    animation: visible-title-turk 1s linear forwards 1s;
+  }
+
+  @keyframes hide-title-turk {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+  }
+
+  @keyframes visible-title-turk {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      transition: opacity 1s;
+    }
+  }
+
+  &__title-rus {
+    font: var(--font-hind-medium-xl);
+    color: rgb(0 0 0 / 90%);
+    margin-top: 25vh;
+    line-height: var(--font-hind-line-xxl);
+    text-shadow: 1px 1px 2px #fff;
+    opacity: 0;
+    text-transform: uppercase;
+    position: absolute;
+    white-space: pre-wrap;
+  }
+
+  &__hidden-title-rus {
+    animation: hide-title-ru 1s linear forwards;
+  }
+
+  &__visibility-title-rus {
+    animation: visible-title-ru 1s linear forwards 1s;
+  }
+
+  @keyframes hide-title-ru {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+  }
+
+  @keyframes visible-title-ru {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      transition: opacity 1s;
+    }
+  }
+
+  &__text {
+    font: var(--font-montserrat-l);
+    width: 455px;
+    line-height: 40px;
+    font-weight: 100;
+    white-space: pre-wrap;
+  }
+}
+
+.main-loaded-content {
+  animation: load 0.8s linear 1.5s 1 forwards;
+}
+
+@keyframes load {
+  from {
+    visibility: visible;
+    margin-top: 25px;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
