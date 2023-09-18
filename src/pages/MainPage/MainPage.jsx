@@ -51,7 +51,7 @@ const MainPage = (props) => {
   return (
     <div
       id="main-page"
-      className={classNames('main-intro', { 'main-intro_loaded': isLoaded })}
+      className={classNames('main-intro', { 'main-intro__loaded': isLoaded })}
     >
       <div className="content-wrapper">
         <div
@@ -69,18 +69,38 @@ const MainPage = (props) => {
             {t('greetingRusSpaces')}
           </h1>
           <p className="main-content__text">
-            {data ? data.paragraph : ''}
+            {data && data.paragraph}
           </p>
+          <div className="main-contacts">
+            {data.contacts.map((contact) => (
+              <a
+                href={contact.link}
+                className="main-contacts__link"
+              >
+                <img
+                  src={contact.icon}
+                  // eslint-disable-next-line no-useless-escape
+                  alt={contact.icon.match(/[^\/]+(?=\.\w+$)/)[0]}
+                  key={contact.icon}
+                />
+              </a>
+            ))}
+          </div>
         </div>
+      </div>
+      <a
+        href="#services-page"
+        className={classNames('main-arrow', {
+          'main-arrow__loaded': isLoaded,
+        })}
+      >
         <img
           src={arrow}
           alt="scroll to services"
           aria-hidden="true"
-          className={classNames('main-arrow', {
-            'main-arrow_loaded': isLoaded,
-          })}
+          className="main-arrow__hover"
         />
-      </div>
+      </a>
     </div>
   );
 };

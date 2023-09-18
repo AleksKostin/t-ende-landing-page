@@ -9,8 +9,15 @@
   position: relative;
   overflow-x: hidden;
   transform: scale(1.5);
+  animation: zindex 100ms ease 2.5s forwards;
 
-  &_loaded {
+  @keyframes zindex {
+    to {
+      z-index: 0;
+    }
+  }
+
+  &__loaded {
     transform: scale(1);
   }
 }
@@ -19,14 +26,20 @@
   position: absolute;
   bottom: 15px;
   left: 50%;
-  right: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: jump 0.8s ease 1.5s infinite alternate;
 
-  &_loaded {
+  &__loaded {
     opacity: 1;
     transition: opacity 1.5s 2.2s;
+  }
+
+  &__hover {
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 350ms;
+    }
   }
 }
 
@@ -141,6 +154,7 @@
     line-height: 40px;
     font-weight: 100;
     white-space: pre-wrap;
+    margin: 0;
   }
 }
 
@@ -158,5 +172,21 @@
   to {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+.main-contacts {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/assets/icons/circle-50-50.svg') top center no-repeat;
+    width: 55px;
+    height: 55px;
+    margin-right: 10px;
   }
 }

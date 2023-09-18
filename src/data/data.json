@@ -1,5 +1,47 @@
 {
   "MainPage": {
-    "paragraph": "Я Татьяна Энде.\nЖиву в городе Анталья уже 20 лет.\nС удовольствием проведу Вас\nв мир Турции!"
+    "paragraph": "Я Татьяна Энде.\nЖиву в городе Анталья уже 20 лет.\nС удовольствием проведу Вас\nв мир Турции!",
+    "contacts": [
+      {
+        "link": "https://instagram.com/",
+        "icon": "icons/instagram.svg"
+      },
+      {
+        "link": "https://www.whatsapp.com/",
+        "icon": "icons/whatsApp.svg"
+      },
+      {
+        "link": "https://telegram.org/",
+        "icon": "icons/telegram.svg"
+      }
+    ]
+  },
+  "ServicesPage": {
+    "blocks": [
+      {
+        "id": "1",
+        "title": "Покупка недвижимости",
+        "paragraph": "Полное сопровождение при выборе,\nпокупке и оформления недвижимости\nв собственность",
+        "icon": "icons/property.svg"
+      },
+      {
+        "id": "2",
+        "title": "Медицинский туризм",
+        "paragraph": "Сопровождение в выборе и\nоформлении туров в целях\nоздоровительной программы",
+        "icon": "icons/medical.svg"
+      },
+      {
+        "id": "3",
+        "title": "Оформление документов",
+        "paragraph": "Помощь в оформлении документов,\nсвязанных с получением ВНЖ,\nгражданства, медицинской страховки и\nдругих",
+        "icon": "icons/paperwork.svg"
+      },
+      {
+        "id": "4",
+        "title": "Услуги переводчика",
+        "paragraph": "Письменный и устный перевод в\nлюбых ситуациях",
+        "icon": "icons/translation.svg"
+      }
+    ]
   }
 }
