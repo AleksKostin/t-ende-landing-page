@@ -1,7 +1,7 @@
 .main-intro {
   width: 100%;
   padding: 0;
-  background: url('/assets/pictures/mainPageWoman.png') top center no-repeat;
+  background: url('/assets/pictures/mainPage-bg-l.jpg') top center no-repeat;
   background-size: cover;
   transition: transform 2.5s;
   height: calc(100vh - var(--navbar-height));
@@ -17,7 +17,7 @@
     }
   }
 
-  &__loaded {
+  &_loaded {
     transform: scale(1);
   }
 }
@@ -30,12 +30,12 @@
   opacity: 0;
   animation: jump 0.8s ease 1.5s infinite alternate;
 
-  &__loaded {
+  &_loaded {
     opacity: 1;
     transition: opacity 1.5s 2.2s;
   }
 
-  &__hover {
+  &__image {
     &:hover {
       opacity: 0.6;
       transition: opacity 350ms;
@@ -150,28 +150,28 @@
 
   &__text {
     font: var(--font-montserrat-l);
-    width: 455px;
+    width: 400px;
     line-height: 40px;
     font-weight: 100;
-    white-space: pre-wrap;
+    white-space: break-spaces;
     margin: 0;
   }
-}
 
-.main-loaded-content {
-  animation: load 0.8s linear 1.5s 1 forwards;
-}
-
-@keyframes load {
-  from {
-    visibility: visible;
-    margin-top: 25px;
-    opacity: 0;
+  &_loaded {
+    animation: load 0.8s linear 1.5s 1 forwards;
   }
 
-  to {
-    visibility: visible;
-    opacity: 1;
+  @keyframes load {
+    from {
+      visibility: visible;
+      margin-top: 25px;
+      opacity: 0;
+    }
+  
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }
 
@@ -184,9 +184,75 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('/assets/icons/circle-50-50.svg') top center no-repeat;
+    /* stylelint-disable-next-line color-function-notation */
+    border: 1px solid rgba(0, 0, 0, 80%);;
+    border-radius: 50%;
     width: 55px;
     height: 55px;
     margin-right: 10px;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 350ms;
+    }
+  }
+}
+
+@media (width < 850px) {
+  .main-intro {
+    /* stylelint-disable-next-line color-function-notation */
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 68%) 61.67%, rgba(255, 255, 255, 0%) 99.65%),
+    url('/assets/pictures/mainPage-bg-m.jpg');
+    background-position: 55%;
+    height: 450px;
+  }
+
+  .main-content__title {
+    font: var(--font-ibm-medium-xl);
+    font-size: 1.3rem;
+    margin-top: 60px;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: normal;
+    text-shadow: none;
+  }
+
+  .main-content__title-rus {
+    font-size: 1.3rem;
+    margin-top: 60px;
+    text-shadow: none;
+    line-height: 30px;
+  }
+
+  .main-content__subtitle {
+    font: var(--font-montserrat-medium-m);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.42px;
+    width: 140px;
+    height: 40px;
+    margin-top: 0;
+    text-shadow: none;
+    margin-bottom: 30px;
+    text-transform: none;
+  }
+
+  .main-content__text {
+    font-size: 0.9rem;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+    width: 185px;
+    white-space: pre-line;
+  }
+
+  .main-contacts__link {
+    border-color: #E8BD67;
+    margin-bottom: 60px;
+    fill: #E8BD67;
+  }
+
+  .main-arrow {
+    display: none;
   }
 }

@@ -7,18 +7,18 @@ const ServiceWrapper = (props) => {
   const { t } = useTranslation();
 
   return (
-    <Link href className="service-wrapper" target="_blank">
-      <div className="service-wrapper__image">
+    <Link href className="service-item" target="_blank">
+      <div className="service-item__image">
         <img src={content.icon} alt="" />
       </div>
-      <div className="service-wrapper__content">
-        <h1 className="service-wrapper__title">
+      <div className="service-item__content">
+        <h2 className="service-item__title">
           {content.title}
-        </h1>
-        <p className="service-wrapper__paragraph">
+        </h2>
+        <p className="service-item__paragraph">
           {content.paragraph}
         </p>
-        <p className="service-wrapper__details">
+        <p className="service-item__details">
           {t('details')}
         </p>
       </div>

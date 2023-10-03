@@ -47,20 +47,22 @@
   // Colors
   --bg-color: #f8fcfd;
   --primary-color: #333;
+  --bg-color-service-wrapper: #FEFFFF;
 
   // Sizes
   --navbar-height: 120px;
   --navbar-link-margin: 75px;
   --navbar-link-margin-left-right: 10px;
   --wrapper-padding: 15px;
+  --services-pading: 120px;
   --services-title-margin-top: 120px;
   --services-title-margin-bottom: 60px;
   --services-block-margin-left: 15px;
-  --service-wrapper-width: 630px;
-  --service-wrapper-height: 366px;
-  --service-wrapper-margin-bottom: 15px;
-  --service-wrapper-image-dimensions: 160px;
-  --service-wrapper-image-margin: 40px;
-  --service-wrapper-title-paragraph-margin: 30px;
-  --service-wrapper-paragraph-height: 60px;
+  --service-item-width: 630px;
+  --service-item-height: 366px;
+  --service-item-margin-bottom: 15px;
+  --service-item-image-dimensions: 160px;
+  --service-item-image-margin: 30px;
+  --service-item-title-paragraph-margin: 30px;
+  --service-item-paragraph-height: 60px;
 }

@@ -7,17 +7,16 @@ const ServicesPage = (props) => {
   const { t } = useTranslation();
 
   return (
-    <div className="services-page">
+    <div className="services">
       <div className="content-wrapper">
-        <h1 id="services-page" className="services-page__title">
+        <h2 id="services-page" className="services__title">
           {t('howCanIHelpYou')}
-        </h1>
-        <div className="services-page__content">
+        </h2>
+        <div className="services__content">
           {data?.blocks.map((block) => (
-            <div className="services-page__content__block">
+            <div className="services__content-block" key={block.id}>
               <ServiceWrapper
                 content={block}
-                key={block.id}
               />
             </div>
           ))}

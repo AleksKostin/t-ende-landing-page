@@ -1,20 +1,6 @@
 {
   "MainPage": {
-    "paragraph": "Я Татьяна Энде.\nЖиву в городе Анталья уже 20 лет.\nС удовольствием проведу Вас\nв мир Турции!",
-    "contacts": [
-      {
-        "link": "https://instagram.com/",
-        "icon": "icons/instagram.svg"
-      },
-      {
-        "link": "https://www.whatsapp.com/",
-        "icon": "icons/whatsApp.svg"
-      },
-      {
-        "link": "https://telegram.org/",
-        "icon": "icons/telegram.svg"
-      }
-    ]
+    "paragraph": "Я Татьяна Энде.\nЖиву в городе Анталья уже 20 лет.\nС удовольствием проведу Вас в мир Турции!"
   },
   "ServicesPage": {
     "blocks": [
