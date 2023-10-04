@@ -29,13 +29,13 @@ const Navbar = () => {
       <div className="content-wrapper header__content">
         <img src={label} alt="brand" className="header__label" />
         <div className="header__links">
-          <a href="#1" className="header__link">
+          <a href="#services-page" className="header__link">
             {t('services')}
           </a>
           <a href="#1" className="header__link">
             {t('articles')}
           </a>
-          <a href="#1" className="header__link">
+          <a href="#about-page" className="header__link">
             {t('aboutMe')}
           </a>
           <a href="#1" className="header__link">
@@ -61,7 +61,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="menu__item">
-              <a href="#1">
+              <a href="#about-page">
                 {t('aboutMe')}
               </a>
             </li>
