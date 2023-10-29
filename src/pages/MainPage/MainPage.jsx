@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import './MainPage.scss';
 import { useTranslation } from 'react-i18next';
 import arrow from 'assets/icons/arrow.svg';
+import mainPageBgL from 'assets/pictures/mainPage-bg-l.jpg';
+import mainPageBgM from 'assets/pictures/mainPage-bg-m.jpg';
 import { ReactComponent as Instagram } from 'assets/icons/instagram.svg';
 import { ReactComponent as WhatsApp } from 'assets/icons/whatsApp.svg';
 import { ReactComponent as Telegram } from 'assets/icons/telegram.svg';
 
-const ANIMATION_SCALED_DELAY = 200;
+// const ANIMATION_SCALED_DELAY = 200;
 const ANIMATION_SLIDER_DELAY = 7000;
 const ANIMATION_START_SLIDER_DELAY = 500;
 
@@ -17,14 +19,19 @@ const MainPage = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isStartedSlider, setIsStartedSlider] = useState(false);
+  const ref = useRef();
   let animationTurk;
   let animationRus;
 
   useEffect(() => {
-    const timerScale = setTimeout(
-      () => setIsLoaded(() => true),
-      ANIMATION_SCALED_DELAY,
-    );
+    const img = new Image();
+    img.src = window.screen.width < 850 ? mainPageBgM : mainPageBgL;
+    img.onload = () => setIsLoaded(true);
+
+    // const timerScale = setTimeout(
+    //   () => setIsLoaded(() => true),
+    //   ANIMATION_SCALED_DELAY,
+    // );
     const intervalSlider = setInterval(
       () => setIsVisible((prev) => !prev),
       ANIMATION_SLIDER_DELAY,
@@ -34,7 +41,7 @@ const MainPage = (props) => {
       ANIMATION_START_SLIDER_DELAY,
     );
     return () => {
-      clearTimeout(timerScale);
+      // clearTimeout(timerScale);
       clearInterval(intervalSlider);
       clearTimeout(timerStartSlider);
     };
@@ -53,6 +60,7 @@ const MainPage = (props) => {
 
   return (
     <div
+      ref={ref}
       id="main-page"
       className={classNames('main-intro', { 'main-intro_loaded': isLoaded })}
     >

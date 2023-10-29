@@ -3,22 +3,16 @@
   padding: 0;
   background: url('/assets/pictures/mainPage-bg-l.jpg') top center no-repeat;
   background-size: cover;
-  transition: transform 2.5s;
+  transition: transform 2.5s, z-index 8s;
   height: calc(100vh - var(--navbar-height));
   z-index: -1;
   position: relative;
   overflow-x: hidden;
   transform: scale(1.5);
-  animation: zindex 100ms ease 2.5s forwards;
-
-  @keyframes zindex {
-    to {
-      z-index: 0;
-    }
-  }
 
   &_loaded {
     transform: scale(1);
+    z-index: 0;
   }
 }
 
@@ -35,11 +29,9 @@
     transition: opacity 1.5s 2.2s;
   }
 
-  &__image {
-    &:hover {
-      opacity: 0.6;
-      transition: opacity 350ms;
-    }
+  &__image:hover {
+    opacity: 0.6;
+    transition: opacity 350ms;
   }
 }
 
@@ -60,20 +52,25 @@
 
   &__title {
     font: var(--font-ibm-medium-xl);
+    font-size: clamp(var(--font-size-l), 3vw, var(--font-size-xl));
+    line-height: 48px;
     color: rgb(0 0 0 / 90%);
     margin-top: 25vh;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     text-shadow: 1px 1px 2px #fff;
     opacity: 0;
   }
 
   &__subtitle {
     font: var(--font-montserrat-bold-l);
+    font-size: clamp(var(--font-size-s), 1.5vw, var(--font-montserrat-size-l));
     color: rgb(0 0 0 / 90%);
-    margin-top: 20px;
     text-shadow: 1px 1px 2px #fff;
     opacity: 0;
     text-transform: uppercase;
+    margin-top: clamp(0px, 1vw, 40px);
+    margin-bottom: 0;
+    line-height: clamp(20px, 1.5vw, 30px);
   }
 
   &__hidden-title-turk {
@@ -108,14 +105,16 @@
 
   &__title-rus {
     font: var(--font-hind-medium-xl);
+    font-size: clamp(var(--font-size-l), 3vw, var(--font-hind-size-xl));
     color: rgb(0 0 0 / 90%);
     margin-top: 25vh;
-    line-height: var(--font-hind-line-xxl);
+    line-height: clamp(30px, 4vw, 48px);
     text-shadow: 1px 1px 2px #fff;
     opacity: 0;
     text-transform: uppercase;
     position: absolute;
     white-space: pre-wrap;
+    margin-bottom: 0;
   }
 
   &__hidden-title-rus {
@@ -150,11 +149,12 @@
 
   &__text {
     font: var(--font-montserrat-l);
-    width: 400px;
-    line-height: 40px;
+    font-size: clamp(var(--font-size-s), 2vw, var(--font-montserrat-size-l));
+    width: clamp(185px, 50vw ,400px);
+    line-height: clamp(20px, 2.5vw, 40px);
     font-weight: 100;
     white-space: break-spaces;
-    margin: 0;
+    margin-top: clamp(var(--gap-small), 5vw, var(--gap-medium));
   }
 
   &_loaded {
@@ -178,18 +178,18 @@
 .main-contacts {
   display: flex;
   align-items: center;
-  margin-top: 60px;
+  margin-top: clamp(var(--gap-small), 4vw ,var(--gap-medium));
 
   &__link {
     display: flex;
     justify-content: center;
     align-items: center;
     /* stylelint-disable-next-line color-function-notation */
-    border: 1px solid rgba(0, 0, 0, 80%);;
+    border: 1px solid rgba(0, 0, 0, 80%);
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    margin-right: 10px;
+    margin-right: var(--gap-tiny);
 
     &:hover {
       transform: scale(1.1);
@@ -209,46 +209,34 @@
 
   .main-content__title {
     font: var(--font-ibm-medium-xl);
-    font-size: 1.3rem;
-    margin-top: 60px;
-    margin-bottom: 0;
+    font-size: var(--font-size-l);
+    margin-top: var(--gap-medium);
     padding: 0;
     line-height: normal;
     text-shadow: none;
   }
 
   .main-content__title-rus {
-    font-size: 1.3rem;
-    margin-top: 60px;
+    margin-top: var(--gap-medium);
     text-shadow: none;
-    line-height: 30px;
   }
 
   .main-content__subtitle {
     font: var(--font-montserrat-medium-m);
-    font-size: 14px;
     font-weight: 500;
-    line-height: 20px;
     letter-spacing: 0.42px;
-    width: 140px;
-    height: 40px;
-    margin-top: 0;
+    width: 160px;
     text-shadow: none;
-    margin-bottom: 30px;
     text-transform: none;
   }
 
   .main-content__text {
-    font-size: 0.9rem;
-    line-height: 20px;
     letter-spacing: 0.14px;
-    width: 185px;
     white-space: pre-line;
   }
 
   .main-contacts__link {
     border-color: #E8BD67;
-    margin-bottom: 60px;
     fill: #E8BD67;
   }
 

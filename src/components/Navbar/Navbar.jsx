@@ -16,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (!inView && isCheckboxChecked) {
-      refInput.current.click();
+      refInput.current.checked = false;
     }
   }, [inView, isCheckboxChecked]);
 
@@ -47,7 +47,7 @@ const Navbar = () => {
           <input ref={refInput} id="menu-toggle" type="checkbox" onChange={handleChange} />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="menu-toggle" className="menu__btn">
-            <span />
+            <span className="menu__icon" />
           </label>
           <ul ref={ref} className="menu__box">
             <li className="menu__item">

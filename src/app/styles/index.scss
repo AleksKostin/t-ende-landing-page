@@ -18,7 +18,7 @@ body {
 
 .content-wrapper {
   max-width: 1280px;
-  padding-right: var(--wrapper-padding);
-  padding-left: var(--wrapper-padding);
+  padding-right: var(--gap-min);
+  padding-left: var(--gap-min);
   margin: 0 auto;
 }
