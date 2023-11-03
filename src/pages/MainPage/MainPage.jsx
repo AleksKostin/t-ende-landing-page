@@ -9,7 +9,6 @@ import { ReactComponent as Instagram } from 'assets/icons/instagram.svg';
 import { ReactComponent as WhatsApp } from 'assets/icons/whatsApp.svg';
 import { ReactComponent as Telegram } from 'assets/icons/telegram.svg';
 
-// const ANIMATION_SCALED_DELAY = 200;
 const ANIMATION_SLIDER_DELAY = 7000;
 const ANIMATION_START_SLIDER_DELAY = 500;
 
@@ -28,10 +27,6 @@ const MainPage = (props) => {
     img.src = window.screen.width < 850 ? mainPageBgM : mainPageBgL;
     img.onload = () => setIsLoaded(true);
 
-    // const timerScale = setTimeout(
-    //   () => setIsLoaded(() => true),
-    //   ANIMATION_SCALED_DELAY,
-    // );
     const intervalSlider = setInterval(
       () => setIsVisible((prev) => !prev),
       ANIMATION_SLIDER_DELAY,
@@ -41,7 +36,6 @@ const MainPage = (props) => {
       ANIMATION_START_SLIDER_DELAY,
     );
     return () => {
-      // clearTimeout(timerScale);
       clearInterval(intervalSlider);
       clearTimeout(timerStartSlider);
     };

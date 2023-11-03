@@ -14,11 +14,10 @@ const ServicesPage = (props) => {
         </h2>
         <div className="services__content">
           {data?.blocks.map((block) => (
-            <div key={block.id}>
-              <ServiceItem
-                content={block}
-              />
-            </div>
+            <ServiceItem
+              content={block}
+              key={block.id}
+            />
           ))}
         </div>
       </div>

@@ -13,7 +13,7 @@
 
   &__link {
     font: var(--font-montserrat-medium-m);
-    color: inherit;
+    color: var(--text-color);
     white-space: nowrap;
     text-transform: uppercase;
     text-decoration: none;
@@ -94,7 +94,7 @@
     background-color: #FFF;
     border-radius: 5px;
     z-index: 2;
-    right: 15px;
+    right: var(--gap-min);
     opacity: 0;
     margin-top: 25px;
     /* stylelint-disable-next-line color-function-notation */
@@ -157,13 +157,13 @@
   transform: rotate(90deg);
 }
 
-@media (width < 1280px) {
+@media (max-width: 1280px) {
   .header__label {
     margin-right: auto;
   }
 }
 
-@media (width < 1024px) {
+@media (max-width: 1024px) {
   .header__links {
     width: 100%;
     justify-content: space-evenly;
@@ -174,7 +174,7 @@
   }
 }
 
-@media (width < 850px) {
+@media (max-width: 850px) {
   .header__links {
     display: none;
   }

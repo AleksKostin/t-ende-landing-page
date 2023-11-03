@@ -52,9 +52,9 @@
 
   &__title {
     font: var(--font-ibm-medium-xl);
-    font-size: clamp(var(--font-size-l), 3vw, var(--font-size-xl));
+    font-size: clamp(var(--font-size-l), 3vw, var(--font-size-xxl));
     line-height: 48px;
-    color: rgb(0 0 0 / 90%);
+    color: var(--text-color-opacity-09);
     margin-top: 25vh;
     margin-bottom: 0;
     text-shadow: 1px 1px 2px #fff;
@@ -64,7 +64,7 @@
   &__subtitle {
     font: var(--font-montserrat-bold-l);
     font-size: clamp(var(--font-size-s), 1.5vw, var(--font-montserrat-size-l));
-    color: rgb(0 0 0 / 90%);
+    color: var(--text-color-opacity-09);
     text-shadow: 1px 1px 2px #fff;
     opacity: 0;
     text-transform: uppercase;
@@ -106,7 +106,7 @@
   &__title-rus {
     font: var(--font-hind-medium-xl);
     font-size: clamp(var(--font-size-l), 3vw, var(--font-hind-size-xl));
-    color: rgb(0 0 0 / 90%);
+    color: var(--text-color-opacity-09);
     margin-top: 25vh;
     line-height: clamp(30px, 4vw, 48px);
     text-shadow: 1px 1px 2px #fff;
@@ -149,6 +149,7 @@
 
   &__text {
     font: var(--font-montserrat-l);
+    color: var(--text-color);
     font-size: clamp(var(--font-size-s), 2vw, var(--font-montserrat-size-l));
     width: clamp(185px, 50vw ,400px);
     line-height: clamp(20px, 2.5vw, 40px);
@@ -198,7 +199,7 @@
   }
 }
 
-@media (width < 850px) {
+@media (max-width: 850px) {
   .main-intro {
     /* stylelint-disable-next-line color-function-notation */
     background-image: linear-gradient(90deg, rgba(255, 255, 255, 68%) 61.67%, rgba(255, 255, 255, 0%) 99.65%),
@@ -236,8 +237,8 @@
   }
 
   .main-contacts__link {
-    border-color: #E8BD67;
-    fill: #E8BD67;
+    border-color: var(--line-color);
+    fill: var(--line-color);
   }
 
   .main-arrow {
