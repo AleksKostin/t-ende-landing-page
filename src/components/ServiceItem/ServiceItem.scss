@@ -1,0 +1,121 @@
+.service-item {
+  display: flex;
+  align-items: center;
+  width: clamp(0px, 49%, 630px);
+  height: 366px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-color-service-item);
+  text-decoration: none;
+  color: var(--text-color-opacity-09);
+
+  &__image {
+    display: flex;
+    border-radius: 100%;
+    border: solid 2px var(--line-color);
+    width: 160px;
+    height: 160px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 var(--gap-small);
+  }
+
+  &__title {
+    margin-bottom: var(--gap-small);
+    font: var(--font-montserrat-medium-l);
+    font-size: clamp(var(--font-size-m), 2.5vw, var(--font-size-xl));
+    text-transform: uppercase;
+    letter-spacing: 0.72px;
+    color: var(--text-color-opacity-09);
+  }
+
+  &__paragraph {
+    opacity: 0.8;
+    font-size: clamp(var(--font-size-s), 2.5vw, var(--font-size-m));;
+    color: var(--text-color-opacity-08);
+    letter-spacing: 0.16px;
+    font-weight: 300;
+    height: var(--gap-medium);
+    white-space: pre-wrap;
+    margin-bottom: var(--gap-small);
+  }
+
+  &__details {
+    font: var(--font-montserrat-medium-m);
+    letter-spacing: 0.48px;
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: #052026;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 12px 0 rgb(0 0 0 / 10%);
+    transform: scale(1.01);
+    transition: box-shadow 150ms, transform 350ms;
+  }
+
+  &:hover .service-item__details {
+    transform: translateX(15px) scale(1.1);
+    transition: transform 150ms;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .service-item {
+    flex-direction: column;
+    justify-content: center;
+    width: 490px;
+    height: 438px;
+  }
+
+  .service-item__image {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 35px;
+  }
+
+  .service-item__icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 620px) {
+  .service-item {
+    width: 330px;
+    height: 275px;
+  }
+
+  .service-item__content {
+    align-self: flex-start;
+    padding-left: 45px;
+  }
+
+  .service-item__image {
+    width: 74px;
+    height: 74px;
+    margin: 30px 0;
+    flex-shrink: 0;
+  }
+
+  .service-item__icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .service-item__title {
+    margin: auto;
+  }
+
+  .service-item__paragraph {
+    margin: auto;
+  }
+
+  .service-item__details {
+    color: #E0B15C;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    flex-shrink: 0;
+  }
+}

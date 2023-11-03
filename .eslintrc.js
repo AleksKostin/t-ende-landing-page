@@ -9,6 +9,7 @@ module.exports = {
     'airbnb',
     'plugin:i18next/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:json/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -17,7 +18,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'json',
+  ],
   rules: {
     'react/function-component-definition': 0,
     'react/react-in-jsx-scope': 'off',
@@ -26,6 +31,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'warn',
     'import/no-unresolved': 'off',
+    'json/*': ['error', 'allowComments'],
     // 'import/extensions': 0,
   },
 };

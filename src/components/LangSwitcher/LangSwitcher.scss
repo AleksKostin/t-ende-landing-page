@@ -1,6 +1,6 @@
 .lang-switcher {
   display: flex;
-  margin-left: var(--navbar-link-margin);
+  margin-left: var(--gap-big);
 }
 
 .lang-btn {
@@ -21,8 +21,14 @@
   }
 }
 
-@media (width < 1024px) {
+@media (max-width: 1024px) {
   .lang-switcher {
     margin-left: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .lang-btn {
+    font-size: 14px;
   }
 }

@@ -2,8 +2,10 @@
   "rus": "RUS",
   "en": "EN",
   "greetingTurk": "Hoş geldiniz!",
-  "services": "",
-  "articles": "",
+  "services": "Services",
+  "articles": "Articles",
   "aboutMe": "About me",
-  "contacts": ""
+  "contacts": "Contacts",
+  "details": "More details",
+  "howCanIHelpYou": "How can I help you"
 }
