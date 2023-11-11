@@ -1,0 +1,22 @@
+.dots {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 18px;
+}
+
+.dot {
+  background-color: #C6CFDD;
+  border-radius: 1.5px;
+  height: 3px;
+  margin: 5px;
+  width: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.selected {
+  background-color: #071224;  
+}

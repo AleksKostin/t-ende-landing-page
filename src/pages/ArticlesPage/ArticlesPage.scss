@@ -1,0 +1,30 @@
+.articles {
+  background-color: var(--bg-secondary-color);
+  padding: 120px;
+
+  &__title {
+    text-transform: uppercase;
+    font: var(--font-montserrat-medium-xl);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+
+    &::before {
+      content: "";
+      background: #E8BD67;
+      width: 4px;
+      height: 50px;
+      position: relative;
+      margin-right: 30px;
+    }
+  }
+  
+  &__slider {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+    z-index: -1;
+  }
+}

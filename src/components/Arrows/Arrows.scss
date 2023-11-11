@@ -1,0 +1,36 @@
+.arrows {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+
+  &__left {
+    background: url('/assets/icons/arrow-slider.svg') top center no-repeat;
+    border: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+
+    &:hover {
+      cursor: pointer;
+      transform: rotate(180deg) scale(1.2);
+      transition: transform 100ms;
+    }
+  }
+
+  &__right {
+    background: url('/assets/icons/arrow-slider.svg') top center no-repeat;
+    border: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      transition: transform 100ms;
+    }
+  }
+}
