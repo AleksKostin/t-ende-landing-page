@@ -41,29 +41,33 @@
   // Font IBM Plex Serif
   --font-ibm-size-xl: 64px;
   --font-ibm-line-xl: 72px;
-  --font-ibm-medium-xl: var(--font-ibm-size-xl) / var(--font-ibm-line-xl)
-    var(--font-family-ibm-medium);
+  --font-ibm-medium-xl: var(--font-ibm-size-xl) / var(--font-ibm-line-xl) var(--font-family-ibm-medium);
 
   // Colors
   --bg-primary-color: #fff;
   --bg-secondary-color: #f8fcfd;
   --primary-color: #333;
   --bg-color-service-wrapper: #FEFFFF;
+  --text-color: #000;
+  --border-color: #E6E6E6;
+  --line-color: #E8BD67;
+  --text-color-opacity-09: #000000E5;
+  --text-color-opacity-08: #000C;
 
   // Sizes
   --navbar-height: 120px;
-  --navbar-link-margin: 75px;
-  --navbar-link-margin-left-right: 10px;
-  --wrapper-padding: 15px;
-  --services-pading: 120px;
-  --services-title-margin-top: 120px;
-  --services-title-margin-bottom: 60px;
-  --services-block-margin-left: 15px;
-  --service-item-width: 630px;
-  --service-item-height: 366px;
-  --service-item-margin-bottom: 15px;
-  --service-item-image-dimensions: 160px;
-  --service-item-image-margin: 30px;
-  --service-item-title-paragraph-margin: 30px;
-  --service-item-paragraph-height: 60px;
+  --border-radius: 5px;
+  --font-size-s: 14px;
+  --font-size-m: 16px;
+  --font-size-l: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 48px;
+
+  // Indents
+  --gap-tiny: 10px;
+  --gap-min: 15px;
+  --gap-small: 30px;
+  --gap-medium: 60px;
+  --gap-big: 75px;
+  --gap-huge: 120px;
 }

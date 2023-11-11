@@ -13,13 +13,13 @@
 
   &__link {
     font: var(--font-montserrat-medium-m);
-    color: inherit;
+    color: var(--text-color);
     white-space: nowrap;
     text-transform: uppercase;
     text-decoration: none;
 
     &:not(:last-child) {
-      margin-right: var(--navbar-link-margin);
+      margin-right: var(--gap-big);
     }
 
     &:hover {
@@ -39,7 +39,7 @@
 }
 
 #menu-toggle {
-  opacity: 0;
+  display: none;
 }
 
 .menu {
@@ -58,9 +58,9 @@
     z-index: 3;
   }
 
-  &__btn > span,
-  &__btn > span::before,
-  &__btn > span::after {
+  &__icon,
+  &__icon::before,
+  &__icon::after {
     display: flex;
     justify-content: center;
     border: 1px solid black;
@@ -70,18 +70,17 @@
     transition: 0.3s;
   }
 
-  &__btn > span::before {
+  &__icon::before {
     content: '';
     bottom: 6px;
   }
 
-  &__btn > span::after {
+  &__icon::after {
     content: '';
     top: 6px;
   }
 
   &__box {
-    visibility: hidden;
     display: block;
     padding: 0;
     position: absolute;
@@ -95,7 +94,7 @@
     background-color: #FFF;
     border-radius: 5px;
     z-index: 2;
-    right: 13px;
+    right: var(--gap-min);
     opacity: 0;
     margin-top: 25px;
     /* stylelint-disable-next-line color-function-notation */
@@ -143,41 +142,39 @@
   left: 0;
 }
 
-#menu-toggle:checked ~ .menu__btn > span {
+#menu-toggle:checked ~ .menu__btn > .menu__icon {
   transform: rotate(45deg);
 }
 
-#menu-toggle:checked ~ .menu__btn > span::before {
+#menu-toggle:checked ~ .menu__btn > .menu__icon::before {
   top: -1px;
   transform: rotate(0);
   
 }
 
-#menu-toggle:checked ~ .menu__btn > span::after {
+#menu-toggle:checked ~ .menu__btn > .menu__icon::after {
   top: -1px;
   transform: rotate(90deg);
 }
 
-
-
-@media (width < 1280px) {
+@media (max-width: 1280px) {
   .header__label {
     margin-right: auto;
   }
 }
 
-@media (width < 1024px) {
+@media (max-width: 1024px) {
   .header__links {
     width: 100%;
     justify-content: space-evenly;
   }
 
   .header__link {
-    margin: 0 var(--navbar-link-margin-left-right);
+    margin: 0 var(--gap-tiny);
   }
 }
 
-@media (width < 750px) {
+@media (max-width: 850px) {
   .header__links {
     display: none;
   }
