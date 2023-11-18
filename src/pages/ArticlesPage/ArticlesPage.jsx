@@ -2,6 +2,7 @@
 import {
   createContext,
   useCallback,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -10,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import SlidesList from 'components/SlidesList/SlidesList';
 import Arrows from 'components/Arrows/Arrows';
 import Dots from 'components/Dots/Dots';
+import Slide from 'components/Slide/Slide';
 
 export const SliderContext = createContext();
 
@@ -20,6 +22,21 @@ const ArticlesPage = ({ data }) => {
   const [slide, setSlide] = useState(0);
   const [nextSlide, setNextSlide] = useState(slide + 1);
   const [animationDirection, setAnimationDirection] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [itemsDisplayed, setItemsDisplayed] = useState(3);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 1024px)');
+
+    if (media.matches !== isMobile) {
+      setIsMobile(media.matches);
+    }
+
+    const listener = () => setIsMobile(media.matches);
+    window.addEventListener('resize', listener);
+
+    return () => window.removeEventListener('resize', listener);
+  }, [isMobile]);
 
   const changeSlide = useCallback((direction = 1) => {
     setAnimationDirection(() => null);
@@ -37,9 +54,6 @@ const ArticlesPage = ({ data }) => {
       nextSlideNumber = (currentSlideNumber + 1) % items.length;
     }
 
-    // eslint-disable-next-line max-len
-    // console.table(`p2: ${prevSlideNumber}`, `c2: ${currentSlideNumber}`, `n2: ${nextSlideNumber}`);
-
     setSlide(currentSlideNumber);
     setPrevSlide(prevSlideNumber);
     setNextSlide(nextSlideNumber);
@@ -53,16 +67,6 @@ const ArticlesPage = ({ data }) => {
     };
   }, [slide, items.length]);
 
-  const goToSlide = (number) => {
-    if (number > slide) {
-      setSlide(number);
-      changeSlide(slide);
-    } else {
-      setSlide(number);
-      changeSlide(-1);
-    }
-  };
-
   const dataSliderContext = useMemo(() => ({
     changeSlide,
     currentSlide: slide,
@@ -70,8 +74,13 @@ const ArticlesPage = ({ data }) => {
     nextSlide,
     items,
     animationDirection,
-    goToSlide,
   }), [changeSlide, animationDirection, items, nextSlide, prevSlide, slide]);
+
+  const handleClick = () => {
+    if (itemsDisplayed < items.length) {
+      setItemsDisplayed((prev) => prev + 1);
+    }
+  };
 
   return (
     <div className="articles">
@@ -84,12 +93,37 @@ const ArticlesPage = ({ data }) => {
             value={dataSliderContext}
           >
             {
-            items.length ? (
-              <SlidesList />
-            ) : 'Loading...'
+              !isMobile ? (
+                <>
+                  <SlidesList />
+                  <Arrows />
+                  <Dots />
+                </>
+              ) : (
+                <>
+                  {items.map((item, index) => {
+                    if (index < itemsDisplayed) {
+                      return (
+                        <Slide data={item} key={item.id} />
+                      );
+                    }
+                    return null;
+                  })}
+                  {
+                  itemsDisplayed !== items.length ? (
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => handleClick()}
+                    >
+                      {t('showMore')}
+                    </button>
+                  )
+                    : null
+                }
+                </>
+              )
             }
-            <Arrows />
-            <Dots />
           </SliderContext.Provider>
         </div>
       </div>

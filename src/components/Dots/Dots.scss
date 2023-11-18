@@ -6,7 +6,7 @@
 }
 
 .dot {
-  background-color: #C6CFDD;
+  background-color: var(--dot-color);
   border-radius: 1.5px;
   height: 3px;
   margin: 5px;
@@ -18,5 +18,5 @@
 }
 
 .selected {
-  background-color: #071224;  
+  background-color: var(--dot-color-selected);  
 }

@@ -5,10 +5,8 @@ import { useContext } from 'react';
 import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 
 const Dots = () => {
-  // const { data } = props;
   const {
     items,
-    goToSlide,
     currentSlide,
   } = useContext(SliderContext);
 
@@ -20,7 +18,6 @@ const Dots = () => {
         <div
           key={`dot-${i}`}
           className={`dot ${i === currentSlide ? 'selected' : ''}`}
-          onClick={() => goToSlide(i)}
         />,
       );
     }

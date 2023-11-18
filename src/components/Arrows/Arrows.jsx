@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 
 const Arrows = () => {
-  // const { data } = props;
   const {
     changeSlide,
     items,
