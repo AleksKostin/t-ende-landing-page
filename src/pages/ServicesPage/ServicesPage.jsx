@@ -1,6 +1,6 @@
 import './ServicesPage.scss';
 import { useTranslation } from 'react-i18next';
-import ServiceWrapper from 'components/ServiceWrapper/ServiceWrapper';
+import ServiceItem from 'components/ServiceItem/ServiceItem';
 
 const ServicesPage = (props) => {
   const { data } = props;
@@ -14,11 +14,10 @@ const ServicesPage = (props) => {
         </h2>
         <div className="services__content">
           {data?.blocks.map((block) => (
-            <div className="services__content-block" key={block.id}>
-              <ServiceWrapper
-                content={block}
-              />
-            </div>
+            <ServiceItem
+              content={block}
+              key={block.id}
+            />
           ))}
         </div>
       </div>

@@ -1,48 +1,50 @@
 .service-item {
   display: flex;
   align-items: center;
-  width: var(--service-item-width);
-  height: var(--service-item-height);
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
-  background-color: var(--bg-color-service-wrapper);
+  width: clamp(0px, 49%, 630px);
+  height: 366px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-color-service-item);
   text-decoration: none;
-  color: inherit;
-  margin-bottom: var(--service-item-margin-bottom);
+  color: var(--text-color-opacity-09);
 
   &__image {
     display: flex;
     border-radius: 100%;
-    border: solid 2px #E8BD67;
-    width: var(--service-item-image-dimensions);
-    height: var(--service-item-image-dimensions);
+    border: solid 2px var(--line-color);
+    width: 160px;
+    height: 160px;
     align-items: center;
     justify-content: center;
-    margin: 0 var(--service-item-image-margin);
+    margin: 0 var(--gap-small);
   }
 
   &__title {
-    margin-bottom: var(--service-item-title-paragraph-margin);
+    margin-bottom: var(--gap-small);
     font: var(--font-montserrat-medium-l);
+    font-size: clamp(var(--font-size-m), 2.5vw, var(--font-size-xl));
     text-transform: uppercase;
     letter-spacing: 0.72px;
-    opacity: 0.9;
-    color: #000;
+    color: var(--text-color-opacity-09);
   }
 
   &__paragraph {
     opacity: 0.8;
-    color: #000;
+    font-size: clamp(var(--font-size-s), 2.5vw, var(--font-size-m));;
+    color: var(--text-color-opacity-08);
     letter-spacing: 0.16px;
     font-weight: 300;
-    height: var(--service-item-paragraph-height);
+    height: var(--gap-medium);
     white-space: pre-wrap;
-    margin-bottom: var(--service-item-title-paragraph-margin);
+    margin-bottom: var(--gap-small);
   }
 
   &__details {
     font: var(--font-montserrat-medium-m);
     letter-spacing: 0.48px;
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: #052026;
   }
 
   &:hover {
@@ -58,7 +60,7 @@
 }
 
 
-@media (width < 1310px) {
+@media (max-width: 1280px) {
   .service-item {
     flex-direction: column;
     justify-content: center;
@@ -72,13 +74,13 @@
     margin-bottom: 35px;
   }
 
-  .service-item__image img{
+  .service-item__icon {
     width: 50px;
     height: 50px;
   }
 }
 
-@media (width < 620px) {
+@media (max-width: 620px) {
   .service-item {
     width: 330px;
     height: 275px;
@@ -96,23 +98,20 @@
     flex-shrink: 0;
   }
 
-  .service-item__image img{
+  .service-item__icon {
     width: 35px;
     height: 35px;
   }
 
   .service-item__title {
-    font-size: 16px;
     margin: auto;
   }
 
   .service-item__paragraph {
-    font-size: 14px;
     margin: auto;
   }
 
   .service-item__details {
-    font-size: 14px;
     color: #E0B15C;
     margin: 0;
     margin-top: 10px;
