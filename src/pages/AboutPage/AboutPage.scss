@@ -1,0 +1,125 @@
+.about {
+  padding: calc(var(--gap-huge) - var(--gap-min)) 0;
+  background-color: var(--bg-primary-color);
+
+  &__title {
+    text-transform: uppercase;
+    font: var(--font-montserrat-medium-xl);
+    font-size: clamp(var(--font-size-l), 3vw, 30px);
+    margin-top: 0;
+    margin-bottom: var(--gap-medium);
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      background: var(--line-color);
+      width: clamp(2px, 0.5vw, 4px);;
+      height: clamp(30px, 10vw, 50px);
+      position: relative;
+      margin-right: var(--gap-small);
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+  }
+
+  &__content {
+    margin-left: 100px;
+    width: clamp(10%, 70%, 650px);
+    margin-right: var(--gap-small);
+  }
+
+  &__paragraph {
+    line-height: var(--line-height-25);
+    letter-spacing: var(--letter-spacing-016);
+    font-weight: 300;
+    color: var(--text-color-opacity-08);
+    white-space: pre-wrap;
+  }
+
+  &__contact-me {
+    line-height: var(--line-height-25);
+    letter-spacing: var(--letter-spacing-016);
+    font-weight: 300;
+    color: var(--text-color-opacity-08);
+  }
+
+  &__contacts {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-color-opacity-08);
+    margin-top: var(--gap-small);
+    border: 2px solid var(--line-color);
+    border-radius: 150px;
+    padding: 20px 25px;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 300ms;
+    }
+  }
+
+  &__img {
+    width: clamp(150px, 30%, 435px);
+    height: clamp(150px, 40%, 435px);
+    border: 1px solid opacity(0);
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .about__content {
+    min-width: 330px;
+    margin-left: 6vw;
+    margin-right: 0;
+  }
+
+  .about__img {
+    flex-shrink: 0;
+    margin-bottom: var(--gap-small);
+  }
+
+  .about__box {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 620px) {
+  .about {
+    padding: var(--gap-medium) 0;
+  }
+
+  .about__content {
+    width: 330px;
+    margin: 0;
+  }
+
+  .about__box {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .about__contact-me {
+    display: none;
+  }
+
+  .about__contacts {
+    margin-top: var(--gap-min);
+    padding: 0;
+    border: none;
+
+    &::before {
+      content: url('../../assets/icons/letter-icon.svg');
+      width: 17px;
+      height: 16px;
+      position: relative;
+      margin-right: 13px;
+    }
+  }
+}
