@@ -1,66 +1,64 @@
 .about {
-  padding: calc(var(--services-pading) - var(--service-item-margin-bottom)) 0;
+  padding: calc(var(--gap-huge) - var(--gap-min)) 0;
   background-color: var(--bg-primary-color);
 
   &__title {
     text-transform: uppercase;
     font: var(--font-montserrat-medium-xl);
-    margin: 0;
+    font-size: clamp(var(--font-size-l), 3vw, 30px);
+    margin-top: 0;
+    margin-bottom: var(--gap-medium);
     display: flex;
     align-items: center;
 
     &::before {
       content: "";
-      background: #E8BD67;
-      width: 4px;
-      height: 50px;
+      background: var(--line-color);
+      width: clamp(2px, 0.5vw, 4px);;
+      height: clamp(30px, 10vw, 50px);
       position: relative;
-      margin-right: 30px;
+      margin-right: var(--gap-small);
     }
   }
 
-  &__wrapper {
+  &__box {
     display: flex;
     align-items: center;
+    justify-content:space-evenly;
   }
 
   &__content {
-    width: 490px;
     margin-left: 100px;
+    width: clamp(10%, 70%, 650px);
+    margin-right: var(--gap-small);
   }
 
   &__paragraph {
-    line-height: 25px;
-    letter-spacing: 0.16px;
+    line-height: var(--line-height-25);
+    letter-spacing: var(--letter-spacing-016);
     font-weight: 300;
-    opacity: 0.8;
+    color: var(--text-color-opacity-08);
     white-space: pre-wrap;
   }
 
-  &__contactMe {
-    line-height: 25px;
-    letter-spacing: 0.16px;
+  &__contact-me {
+    line-height: var(--line-height-25);
+    letter-spacing: var(--letter-spacing-016);
     font-weight: 300;
-    opacity: 0.8;
+    color: var(--text-color-opacity-08);
   }
 
   &__contacts {
+    display: inline-block;
     text-decoration: none;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    margin-top: 70px;
-
-    &::before {
-      content: url('../../assets/icons/letter-icon.svg');
-      width: 17px;
-      height: 16px;
-      position: relative;
-      margin-right: 13px;
-    }
+    color: var(--text-color-opacity-08);
+    margin-top: var(--gap-small);
+    border: 2px solid var(--line-color);
+    border-radius: 150px;
+    padding: 20px 25px;
 
     &:hover {
-      transform: translateX(15px) scale(1.1);
+      transform: scale(1.1);
       transition: transform 300ms;
     }
   }
@@ -70,62 +68,58 @@
     height: clamp(150px, 40%, 435px);
     border: 1px solid opacity(0);
     border-radius: 50%;
-    margin-left: 50px;
   }
 }
 
-@media (width < 1100px) {
+@media (max-width: 1100px) {
   .about__content {
     min-width: 330px;
     margin-left: 6vw;
+    margin-right: 0;
   }
 
   .about__img {
     flex-shrink: 0;
+    margin-bottom: var(--gap-small);
+  }
+
+  .about__box {
+    flex-direction: column-reverse;
   }
 }
 
-@media (width < 620px) {
+@media (max-width: 620px) {
   .about {
-    padding: 60px 0;
-  }
-
-  .about__img {
-    margin-left: 0;
-    margin-bottom: 30px;
+    padding: var(--gap-medium) 0;
   }
 
   .about__content {
     width: 330px;
-    margin-left: 0;
+    margin: 0;
   }
 
-  .about__wrapper {
+  .about__box {
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
     justify-content: center;
   }
 
-  .about__title {
-    margin-bottom: 30px;
-    font-size: 20px;
-
-    &::before {
-      content: "";
-      background: #E8BD67;
-      width: 2px;
-      height: 30px;
-      position: relative;
-      margin-right: 15px;
-    }
-  }
-
-  .about__contactMe {
+  .about__contact-me {
     display: none;
   }
 
   .about__contacts {
-    margin-top: 15px;
+    margin-top: var(--gap-min);
+    padding: 0;
+    border: none;
+
+    &::before {
+      content: url('../../assets/icons/letter-icon.svg');
+      width: 17px;
+      height: 16px;
+      position: relative;
+      margin-right: 13px;
+    }
   }
 }

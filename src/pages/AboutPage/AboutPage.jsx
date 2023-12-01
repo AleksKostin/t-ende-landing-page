@@ -12,12 +12,12 @@ const AboutPage = (props) => {
         <h2 id="about-page" className="about__title">
           {t('aboutMe')}
         </h2>
-        <div className="about__wrapper">
+        <div className="about__box">
           <div className="about__content">
             <p className="about__paragraph">
               {data.paragraph}
             </p>
-            <p className="about__contactMe">
+            <p className="about__contact-me">
               {data.contactMe}
             </p>
             <a href="#1" className="about__contacts">
