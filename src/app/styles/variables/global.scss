@@ -44,7 +44,8 @@
   --font-ibm-medium-xl: var(--font-ibm-size-xl) / var(--font-ibm-line-xl) var(--font-family-ibm-medium);
 
   // Colors
-  --bg-color: #f8fcfd;
+  --bg-primary-color: #fff;
+  --bg-secondary-color: #f8fcfd;
   --primary-color: #333;
   --bg-color-service-wrapper: #FEFFFF;
   --text-color: #000;
@@ -61,6 +62,8 @@
   --font-size-l: 20px;
   --font-size-xl: 24px;
   --font-size-xxl: 48px;
+  --line-height-25: 25px;
+  --letter-spacing-016: 0.16px;
 
   // Indents
   --gap-tiny: 10px;
