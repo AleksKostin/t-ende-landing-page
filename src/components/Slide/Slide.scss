@@ -33,7 +33,7 @@
 
   &__date {
     margin: 0;
-    margin-top: 5px;
+    margin-top: var(--gap-bit);
     margin-left: var(--gap-small);
     font: var(--font-montserrat-m);
     color: var(--text-color-secondary);
@@ -59,7 +59,7 @@
     bottom: var(--gap-small);
   }
 
-  &:hover {
+  &:hover:not(.error) {
     box-shadow: 0 3px 12px 0 rgb(0 0 0 / 10%);
     transform: scale(1.01);
     transition: box-shadow 150ms, transform 350ms;
@@ -69,6 +69,11 @@
     transform: scale(1.1);
     transition: transform 150ms;
   }
+}
+
+.error {
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1024px) {
@@ -111,5 +116,15 @@
     &:hover .slide__details {
       transform: scale(1);
     }
+  }
+
+  .error_box {
+    display: flex;
+    flex: 1 0 100%;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    min-height: 395px;
+    min-width: 333px;
+    margin-bottom: var(--gap-min);
   }
 }

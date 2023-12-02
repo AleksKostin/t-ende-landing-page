@@ -2,20 +2,22 @@ import './Arrows.scss';
 import { useContext } from 'react';
 import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 
-const Arrows = () => {
+const Arrows = ({ children }) => {
   const {
-    changeSlide,
     items,
+    changeSlide,
   } = useContext(SliderContext);
 
   return (
-    <div
-      className="arrows"
-      style={{ gap: `calc((${items.length} * 50px) + 40px)` }}
-    >
-      <button aria-label="slide left" className="arrows__left" type="button" onClick={() => changeSlide(-1)} />
-      <button aria-label="slide right" className="arrows__right" type="button" onClick={() => changeSlide(1)} />
-    </div>
+    items.length ? (
+      <div
+        className="arrows"
+      >
+        <button aria-label="slide left" className="arrows__left" type="button" onClick={() => changeSlide(-1)} />
+        {children}
+        <button aria-label="slide right" className="arrows__right" type="button" onClick={() => changeSlide(1)} />
+      </div>
+    ) : null
   );
 };
 

@@ -14,16 +14,18 @@ import Dots from 'components/Dots/Dots';
 import Slide from 'components/Slide/Slide';
 
 export const SliderContext = createContext();
+const INITIAL_SLIDE = 0;
+const INITIAL_NUMBER_SLIDES = 3;
 
 const ArticlesPage = ({ data }) => {
   const { t } = useTranslation();
   const items = data.articles;
   const [prevSlide, setPrevSlide] = useState(items.length - 1);
-  const [slide, setSlide] = useState(0);
+  const [slide, setSlide] = useState(INITIAL_SLIDE);
   const [nextSlide, setNextSlide] = useState(slide + 1);
   const [animationDirection, setAnimationDirection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [itemsDisplayed, setItemsDisplayed] = useState(3);
+  const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 1024px)');
@@ -37,6 +39,14 @@ const ArticlesPage = ({ data }) => {
 
     return () => window.removeEventListener('resize', listener);
   }, [isMobile]);
+
+  useEffect(() => {
+    if (itemsDisplayed > INITIAL_NUMBER_SLIDES) {
+      const slides = document.querySelectorAll('.slide');
+      const newSlide = slides[slides.length - 1];
+      newSlide.scrollIntoView();
+    }
+  }, [itemsDisplayed]);
 
   const changeSlide = useCallback((direction = 1) => {
     setAnimationDirection(() => null);
@@ -74,13 +84,23 @@ const ArticlesPage = ({ data }) => {
     nextSlide,
     items,
     animationDirection,
-  }), [changeSlide, animationDirection, items, nextSlide, prevSlide, slide]);
+    isMobile,
+  }), [changeSlide, animationDirection, items, nextSlide, prevSlide, slide, isMobile]);
 
   const handleClick = () => {
     if (itemsDisplayed < items.length) {
       setItemsDisplayed((prev) => prev + 1);
     }
   };
+
+  const slides = items.map((item, index) => {
+    if (index < itemsDisplayed) {
+      return (
+        <Slide data={item} key={item.id} />
+      );
+    }
+    return null;
+  });
 
   return (
     <div className="articles">
@@ -96,31 +116,26 @@ const ArticlesPage = ({ data }) => {
               !isMobile ? (
                 <>
                   <SlidesList />
-                  <Arrows />
-                  <Dots />
+                  <Arrows>
+                    <Dots />
+                  </Arrows>
                 </>
               ) : (
                 <>
-                  {items.map((item, index) => {
-                    if (index < itemsDisplayed) {
-                      return (
-                        <Slide data={item} key={item.id} />
-                      );
-                    }
-                    return null;
-                  })}
+                  {slides}
                   {
-                  itemsDisplayed !== items.length ? (
-                    <button
-                      className="btn"
-                      type="button"
-                      onClick={() => handleClick()}
-                    >
-                      {t('showMore')}
-                    </button>
-                  )
-                    : null
-                }
+                    itemsDisplayed !== items.length ? (
+                      <button
+                        className="btn"
+                        type="button"
+                        onClick={() => handleClick()}
+                        style={{ display: items.length ? 'block' : 'none' }}
+                      >
+                        {t('showMore')}
+                      </button>
+                    )
+                      : null
+                  }
                 </>
               )
             }

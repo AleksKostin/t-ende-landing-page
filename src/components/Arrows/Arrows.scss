@@ -1,7 +1,8 @@
 .arrows {
   display: flex;
   justify-content: center;
-  z-index: 1;
+  align-items: center;
+  gap: 20px;
 
   &__left {
     background: url('/assets/icons/arrow-slider.svg') top center no-repeat;

@@ -1,8 +1,6 @@
 .dots {
   display: flex;
   justify-content: center;
-  position: relative;
-  bottom: 18px;
 }
 
 .dot {
@@ -11,10 +9,6 @@
   height: 3px;
   margin: 5px;
   width: 40px;
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .selected {

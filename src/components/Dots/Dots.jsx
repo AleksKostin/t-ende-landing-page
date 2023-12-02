@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import './Dots.scss';
 import { useContext } from 'react';
 import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
+import cn from 'classnames';
 
 const Dots = () => {
   const {
@@ -10,23 +9,17 @@ const Dots = () => {
     currentSlide,
   } = useContext(SliderContext);
 
-  const renderDots = () => {
-    const dots = [];
-
-    for (let i = 0; i < items.length; i += 1) {
-      dots.push(
-        <div
-          key={`dot-${i}`}
-          className={`dot ${i === currentSlide ? 'selected' : ''}`}
-        />,
-      );
-    }
-
-    return dots;
-  };
+  const dotsItems = [...items].map((item, i) => (
+    <div
+      key={item.id}
+      className={cn('dot', { selected: i === currentSlide })}
+    />
+  ));
 
   return (
-    <div className="dots">{renderDots()}</div>
+    items ? (
+      <div className="dots">{dotsItems}</div>
+    ) : null
   );
 };
 

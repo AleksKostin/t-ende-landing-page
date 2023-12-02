@@ -2,7 +2,7 @@ import './SlidesList.scss';
 import Slide from 'components/Slide/Slide';
 import { useContext } from 'react';
 import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 const SlidesList = () => {
   const {
@@ -21,7 +21,7 @@ const SlidesList = () => {
   }
 
   return (
-    <div className={classNames('slide-list', animation)}>
+    <div className={cn('slide-list', animation)}>
       <Slide data={items[prevSlide]} />
       <Slide data={items[currentSlide]} />
       <Slide data={items[nextSlide]} />
