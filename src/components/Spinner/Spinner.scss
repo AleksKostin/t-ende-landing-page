@@ -1,3 +1,10 @@
+.fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 500%);
+}
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: var(--gap-little);
 
   &__left {
     background: url('/assets/icons/arrow-slider.svg') top center no-repeat;

@@ -3,21 +3,35 @@ import Spinner from 'components/Spinner/Spinner';
 import './Slide.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import cn from 'classnames';
 import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 
-const Slide = (props) => {
+const Slide = React.forwardRef((props, ref) => {
   const { data } = props;
   const { t } = useTranslation();
   const {
     isMobile,
   } = useContext(SliderContext);
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const img = new Image();
+  img.src = data.url;
+  img.onload = () => setIsLoaded(() => true);
+
   return (
     data ? (
-      <Link href className="slide" target="_blank">
-        <img className="slide__image" src={data.url} alt={data.title} />
+      <Link ref={ref} href className="slide" target="_blank">
+        {
+          isLoaded
+            ? <img className="slide__image" src={img.src} alt={data.title} />
+            : (
+              <div className="error slide__image">
+                <Spinner />
+              </div>
+            )
+        }
         <h2 className="slide__title">{data.title}</h2>
         <p className="slide__date">{data.date}</p>
         <p className="slide__text">{data.paragraph}</p>
@@ -29,6 +43,6 @@ const Slide = (props) => {
       </div>
     )
   );
-};
+});
 
 export default Slide;

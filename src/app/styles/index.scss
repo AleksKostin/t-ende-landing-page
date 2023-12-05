@@ -22,3 +22,9 @@ body {
   padding-left: var(--gap-min);
   margin: 0 auto;
 }
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

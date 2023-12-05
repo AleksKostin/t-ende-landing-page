@@ -6,6 +6,7 @@ import ServicesPage from 'pages/ServicesPage/ServicesPage';
 import { BrowserRouter } from 'react-router-dom';
 import AboutPage from 'pages/AboutPage/AboutPage';
 import ArticlesPage from 'pages/ArticlesPage/ArticlesPage';
+import Spinner from 'components/Spinner/Spinner';
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -16,7 +17,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Suspense fallback="Loading...">
+      <Suspense fallback={<Spinner cls />}>
         <Navbar />
         <MainPage data={landingPageData.mainPage} />
         <ServicesPage data={landingPageData.servicesPage} />

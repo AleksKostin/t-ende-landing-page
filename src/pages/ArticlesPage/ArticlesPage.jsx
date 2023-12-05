@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import './ArticlesPage.scss';
@@ -12,6 +13,7 @@ import SlidesList from 'components/SlidesList/SlidesList';
 import Arrows from 'components/Arrows/Arrows';
 import Dots from 'components/Dots/Dots';
 import Slide from 'components/Slide/Slide';
+import cn from 'classnames';
 
 export const SliderContext = createContext();
 const INITIAL_SLIDE = 0;
@@ -26,9 +28,10 @@ const ArticlesPage = ({ data }) => {
   const [animationDirection, setAnimationDirection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
+  const newSlideRef = useRef(null);
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 1024px)');
+    const media = window.matchMedia('(max-width: 1023px)');
 
     if (media.matches !== isMobile) {
       setIsMobile(media.matches);
@@ -42,9 +45,7 @@ const ArticlesPage = ({ data }) => {
 
   useEffect(() => {
     if (itemsDisplayed > INITIAL_NUMBER_SLIDES) {
-      const slides = document.querySelectorAll('.slide');
-      const newSlide = slides[slides.length - 1];
-      newSlide.scrollIntoView();
+      newSlideRef.current?.scrollIntoView();
     }
   }, [itemsDisplayed]);
 
@@ -77,15 +78,26 @@ const ArticlesPage = ({ data }) => {
     };
   }, [slide, items.length]);
 
-  const dataSliderContext = useMemo(() => ({
-    changeSlide,
-    currentSlide: slide,
-    prevSlide,
-    nextSlide,
-    items,
-    animationDirection,
-    isMobile,
-  }), [changeSlide, animationDirection, items, nextSlide, prevSlide, slide, isMobile]);
+  const dataSliderContext = useMemo(
+    () => ({
+      changeSlide,
+      currentSlide: slide,
+      prevSlide,
+      nextSlide,
+      items,
+      animationDirection,
+      isMobile,
+    }),
+    [
+      changeSlide,
+      animationDirection,
+      items,
+      nextSlide,
+      prevSlide,
+      slide,
+      isMobile,
+    ],
+  );
 
   const handleClick = () => {
     if (itemsDisplayed < items.length) {
@@ -96,7 +108,11 @@ const ArticlesPage = ({ data }) => {
   const slides = items.map((item, index) => {
     if (index < itemsDisplayed) {
       return (
-        <Slide data={item} key={item.id} />
+        <Slide
+          ref={index === itemsDisplayed - 1 ? newSlideRef : null}
+          data={item}
+          key={item.id}
+        />
       );
     }
     return null;
@@ -126,10 +142,9 @@ const ArticlesPage = ({ data }) => {
                   {
                     itemsDisplayed !== items.length ? (
                       <button
-                        className="btn"
+                        className={cn('btn', { hidden: !items.length })}
                         type="button"
                         onClick={() => handleClick()}
-                        style={{ display: items.length ? 'block' : 'none' }}
                       >
                         {t('showMore')}
                       </button>
