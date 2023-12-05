@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<Spinner cls />}>
+      <Suspense fallback={<Spinner positionFixedCenter />}>
         <Navbar />
         <MainPage data={landingPageData.mainPage} />
         <ServicesPage data={landingPageData.servicesPage} />

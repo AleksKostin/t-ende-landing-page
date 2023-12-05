@@ -12,19 +12,24 @@ const Slide = React.forwardRef((props, ref) => {
   const { t } = useTranslation();
   const {
     isMobile,
+    isLoadedSlide,
+    setIsLoadedSlide,
   } = useContext(SliderContext);
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   const img = new Image();
   img.src = data.url;
-  img.onload = () => setIsLoaded(() => true);
+  img.onload = () => {
+    setIsLoaded(() => true);
+    setIsLoadedSlide(() => true);
+  };
 
   return (
     data ? (
       <Link ref={ref} href className="slide" target="_blank">
         {
-          isLoaded
+          isLoaded && isLoadedSlide
             ? <img className="slide__image" src={img.src} alt={data.title} />
             : (
               <div className="error slide__image">

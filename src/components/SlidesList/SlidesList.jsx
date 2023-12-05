@@ -12,6 +12,7 @@ const SlidesList = () => {
     items,
     animationDirection,
   } = useContext(SliderContext);
+
   let animation = '';
 
   if (animationDirection < 0) {

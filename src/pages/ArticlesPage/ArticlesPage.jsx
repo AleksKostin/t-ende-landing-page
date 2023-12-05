@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import {
   createContext,
   useCallback,
@@ -28,6 +27,7 @@ const ArticlesPage = ({ data }) => {
   const [animationDirection, setAnimationDirection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
+  const [isLoadedSlide, setIsLoadedSlide] = useState(false);
   const newSlideRef = useRef(null);
 
   useEffect(() => {
@@ -51,17 +51,22 @@ const ArticlesPage = ({ data }) => {
 
   const changeSlide = useCallback((direction = 1) => {
     setAnimationDirection(() => null);
-    let currentSlideNumber = 0;
+    setIsLoadedSlide(() => false);
+    let currentSlideNumber = INITIAL_SLIDE;
     let prevSlideNumber;
     let nextSlideNumber;
 
-    if (slide + direction < 0) {
+    if (slide + direction < INITIAL_SLIDE) {
       currentSlideNumber = items.length - 1;
       prevSlideNumber = currentSlideNumber - 1;
       nextSlideNumber = (currentSlideNumber + 1) % items.length;
     } else {
       currentSlideNumber = (slide + direction) % items.length;
-      prevSlideNumber = currentSlideNumber === 0 ? items.length - 1 : currentSlideNumber - 1;
+      prevSlideNumber = (
+        currentSlideNumber === INITIAL_SLIDE
+          ? items.length - 1
+          : currentSlideNumber - 1
+      );
       nextSlideNumber = (currentSlideNumber + 1) % items.length;
     }
 
@@ -87,6 +92,8 @@ const ArticlesPage = ({ data }) => {
       items,
       animationDirection,
       isMobile,
+      isLoadedSlide,
+      setIsLoadedSlide,
     }),
     [
       changeSlide,
@@ -96,6 +103,7 @@ const ArticlesPage = ({ data }) => {
       prevSlide,
       slide,
       isMobile,
+      isLoadedSlide,
     ],
   );
 
