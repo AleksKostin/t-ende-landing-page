@@ -1,0 +1,16 @@
+.dots {
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  background-color: var(--dot-color);
+  border-radius: 1.5px;
+  height: 3px;
+  margin: 5px;
+  width: 40px;
+}
+
+.selected {
+  background-color: var(--dot-color-selected);  
+}
