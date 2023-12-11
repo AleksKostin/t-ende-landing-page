@@ -27,7 +27,7 @@ const ArticlesPage = ({ data }) => {
   const [animationDirection, setAnimationDirection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
-  const [isLoadedSlide, setIsLoadedSlide] = useState(false);
+  const [isLoadedNewSlide, setIsLoadedNewSlide] = useState(false);
   const newSlideRef = useRef(null);
 
   useEffect(() => {
@@ -50,8 +50,8 @@ const ArticlesPage = ({ data }) => {
   }, [itemsDisplayed]);
 
   const changeSlide = useCallback((direction = 1) => {
-    setAnimationDirection(() => null);
-    setIsLoadedSlide(() => false);
+    setAnimationDirection(null);
+    setIsLoadedNewSlide(false);
     let currentSlideNumber = INITIAL_SLIDE;
     let prevSlideNumber;
     let nextSlideNumber;
@@ -92,8 +92,8 @@ const ArticlesPage = ({ data }) => {
       items,
       animationDirection,
       isMobile,
-      isLoadedSlide,
-      setIsLoadedSlide,
+      isLoadedNewSlide,
+      setIsLoadedNewSlide,
     }),
     [
       changeSlide,
@@ -103,7 +103,7 @@ const ArticlesPage = ({ data }) => {
       prevSlide,
       slide,
       isMobile,
-      isLoadedSlide,
+      isLoadedNewSlide,
     ],
   );
 
