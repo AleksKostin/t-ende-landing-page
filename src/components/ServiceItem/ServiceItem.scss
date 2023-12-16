@@ -35,7 +35,7 @@
     color: var(--text-color-opacity-08);
     letter-spacing: 0.16px;
     font-weight: 300;
-    height: var(--gap-medium);
+    height: fit-content;
     white-space: pre-wrap;
     margin-bottom: var(--gap-small);
   }
@@ -80,7 +80,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 580px) {
   .service-item {
     width: 330px;
     height: 275px;
