@@ -20,7 +20,7 @@ const AboutPage = (props) => {
             <p className="about__contact-me">
               {data.contactMe}
             </p>
-            <a href="#1" className="about__contacts">
+            <a href="#contact-page" className="about__contacts">
               {t('myContacts')}
             </a>
           </div>

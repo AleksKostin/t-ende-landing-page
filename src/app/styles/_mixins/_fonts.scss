@@ -1,6 +1,6 @@
 @import './font-face';
 @include font-face(
-  'Montserrat-Regular',
+  'Montserrat Regular',
   '../../../assets/fonts/montserrat/Montserrat-Regular'
 );
 @include font-face(
@@ -8,7 +8,7 @@
   '../../../assets/fonts/montserrat/Montserrat-SemiBold'
 );
 @include font-face(
-  'Montserrat-Medium',
+  'Montserrat Medium',
   '../../../assets/fonts/montserrat/Montserrat-Medium'
 );
 @include font-face('Hind Medium', '../../../assets/fonts/hind/Hind-Medium');
