@@ -32,6 +32,11 @@
     letter-spacing: var(--letter-spacing-014);
     margin: 0;
     font-size: clamp(var(--font-size-xs), 2.5vw, var(--font-size-s));
+
+  }
+  
+  &__link-developed {
+    color: var(--text-color-secondary);
   }
 
   &__contact-developed {
