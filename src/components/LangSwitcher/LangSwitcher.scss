@@ -10,10 +10,12 @@
   border: none;
   background: none;
   outline: none;
+  cursor: pointer;
 
   &:hover {
     transform: perspective(10px) scale(1.1);
     transition: transform 300ms;
+    text-decoration: underline;
   }
 
   &:not(:last-child) {

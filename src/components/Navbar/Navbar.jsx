@@ -1,6 +1,6 @@
 import './Navbar.scss';
 import { useTranslation } from 'react-i18next';
-import label from 'assets/icons/lable.svg';
+import { ReactComponent as Label } from 'assets/icons/label.svg';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef, useState } from 'react';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
@@ -27,18 +27,18 @@ const Navbar = () => {
   return (
     <div id="header" className="header-wrapper">
       <div className="content-wrapper header__content">
-        <img src={label} alt="brand" className="header__label" />
+        <Label className="header__label" />
         <div className="header__links">
           <a href="#services-page" className="header__link">
             {t('services')}
           </a>
-          <a href="#1" className="header__link">
+          <a href="#articles-page" className="header__link">
             {t('articles')}
           </a>
           <a href="#about-page" className="header__link">
             {t('aboutMe')}
           </a>
-          <a href="#1" className="header__link">
+          <a href="#contact-page" className="header__link">
             {t('contacts')}
           </a>
         </div>
@@ -56,7 +56,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="menu__item">
-              <a href="#1">
+              <a href="#articles-page">
                 {t('articles')}
               </a>
             </li>
@@ -66,7 +66,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="menu__item">
-              <a href="#1">
+              <a href="#contact-page">
                 {t('contacts')}
               </a>
             </li>

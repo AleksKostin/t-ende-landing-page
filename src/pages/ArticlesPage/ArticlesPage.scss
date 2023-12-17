@@ -1,6 +1,6 @@
 .articles {
   background-color: var(--bg-secondary-color);
-  padding: calc(var(--gap-huge) - var(--gap-min)) 0;;
+  padding: calc(var(--gap-huge) - var(--gap-min)) 0;
 
   &__title {
     text-transform: uppercase;
@@ -31,6 +31,10 @@
 }
 
 @media (max-width: 1023px) {
+  .articles{
+    padding: var(--gap-medium) 0;
+  }
+
   .articles__slider {
     align-items: center;
   }
