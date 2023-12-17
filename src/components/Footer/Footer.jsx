@@ -14,7 +14,9 @@ const Footer = (props) => {
           <Logo />
           <div className="footer__designer-contacts">
             <p className="footer__text-developed">{t('websiteDeveloped')}</p>
-            <p className="footer__contact-developed">{t('instagramDesigner')}</p>
+            <a href="https://www.instagram.com/mn.artdesign">
+              <p className="footer__contact-developed">{t('instagramDesigner')}</p>
+            </a>
           </div>
         </div>
       </div>

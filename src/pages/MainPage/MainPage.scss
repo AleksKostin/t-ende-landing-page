@@ -49,6 +49,8 @@
   display: flex;
   flex-direction: column;
   visibility: hidden;
+  margin-left: 5vw;
+
 
   &__title {
     font: var(--font-ibm-medium-xl);
@@ -200,6 +202,10 @@
 }
 
 @media (max-width: 850px) {
+  .main-content {
+    margin-left: 0;
+  }
+
   .main-intro {
     /* stylelint-disable-next-line color-function-notation */
     background-image: linear-gradient(90deg, rgba(255, 255, 255, 68%) 61.67%, rgba(255, 255, 255, 0%) 99.65%),
