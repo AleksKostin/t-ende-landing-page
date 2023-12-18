@@ -73,6 +73,7 @@
     &:hover {
       transform: scale(1.05);
       transition: transform 200ms;
+      text-decoration: underline;
     }
   }
 }
@@ -98,7 +99,7 @@
   }
 
   .contact__paragraph {
-    width: 80vw;
+    width: 55vw;
     margin-bottom: 0;
     margin-left: var(--gap-small);
   }

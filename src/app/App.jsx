@@ -1,7 +1,6 @@
 import { Suspense, useEffect, useState } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import MainPage from 'pages/MainPage/MainPage';
-import JsonData from 'data/data.json';
 import ServicesPage from 'pages/ServicesPage/ServicesPage';
 import { Route, Routes } from 'react-router-dom';
 import AboutPage from 'pages/AboutPage/AboutPage';
@@ -9,7 +8,7 @@ import ArticlesPage from 'pages/ArticlesPage/ArticlesPage';
 import Spinner from 'components/Spinner/Spinner';
 import ContactPage from 'pages/ContactPage/ContactPage';
 import Footer from 'components/Footer/Footer';
-import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
+import JsonData from '../data/data.json';
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
