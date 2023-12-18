@@ -32,7 +32,7 @@ const ArticleDetailsPage = (props) => {
     scroller.scrollTo('header', {
       spy: true,
       smooth: false,
-      duration: 100,
+      duration: 0,
     });
   }, [id]);
 

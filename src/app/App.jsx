@@ -24,7 +24,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route
-            path="/landing"
+            path="/landing/"
             element={(
               <>
                 <MainPage data={landingPageData.mainPage} />
