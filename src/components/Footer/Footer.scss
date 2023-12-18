@@ -6,11 +6,10 @@
 :root[data-page="article"] {
   --footer-text-align: center;
   --footer-width-content: 70%;
-}
 
-:root[data-page="article-mobile"] {
-  --footer-text-align: start;
-  --footer-width-content: 100%;
+  @media (max-width: 1023px) {
+    --footer-width-content: 100%;
+  }
 }
 
 .footer {

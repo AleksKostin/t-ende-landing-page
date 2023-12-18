@@ -24,7 +24,7 @@ const Slide = React.forwardRef((props, ref) => {
 
   return (
     data ? (
-      <Link ref={ref} to={`/article/${data.id}`} className="slide">
+      <Link ref={ref} to={`/landing/article/${data.id}`} className="slide">
         {
           isLoaded
             ? <img className="slide__image" src={img.src} alt={data.title} />

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ReactComponent as Label } from 'assets/icons/label.svg';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
 
 const Navbar = () => {
@@ -27,18 +28,20 @@ const Navbar = () => {
   return (
     <div id="header" className="header-wrapper">
       <div className="content-wrapper header__content">
-        <Label className="header__label" />
+        <Link to="/landing/" className="header__label">
+          <Label />
+        </Link>
         <div className="header__links">
-          <a href="/#services-page" className="header__link">
+          <a href="/landing/#services-page" className="header__link">
             {t('services')}
           </a>
-          <a href="/#articles-page" className="header__link">
+          <a href="/landing/#articles-page" className="header__link">
             {t('articles')}
           </a>
-          <a href="/#about-page" className="header__link">
+          <a href="/landing/#about-page" className="header__link">
             {t('aboutMe')}
           </a>
-          <a href="/#contact-page" className="header__link">
+          <a href="/landing/#contact-page" className="header__link">
             {t('contacts')}
           </a>
         </div>
@@ -51,22 +54,22 @@ const Navbar = () => {
           </label>
           <ul ref={ref} className="menu__box">
             <li className="menu__item">
-              <a href="/#services-page">
+              <a href="/landing/#services-page">
                 {t('services')}
               </a>
             </li>
             <li className="menu__item">
-              <a href="/#articles-page">
+              <a href="/landing/#articles-page">
                 {t('articles')}
               </a>
             </li>
             <li className="menu__item">
-              <a href="/#about-page">
+              <a href="/landing/#about-page">
                 {t('aboutMe')}
               </a>
             </li>
             <li className="menu__item">
-              <a href="/#contact-page">
+              <a href="/landing/#contact-page">
                 {t('contacts')}
               </a>
             </li>

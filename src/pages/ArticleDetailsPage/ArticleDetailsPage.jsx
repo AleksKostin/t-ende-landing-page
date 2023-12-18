@@ -31,7 +31,7 @@ const ArticleDetailsPage = (props) => {
     document.documentElement.dataset.page = 'article';
     scroller.scrollTo('header', {
       spy: true,
-      smooth: true,
+      smooth: false,
       duration: 100,
     });
   }, [id]);
@@ -44,10 +44,6 @@ const ArticleDetailsPage = (props) => {
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 1023px)');
-
-    if (media.matches === isMobile) {
-      document.documentElement.dataset.page = 'article-mobile';
-    }
 
     if (media.matches !== isMobile) {
       setIsMobile(media.matches);
@@ -133,10 +129,10 @@ const ArticleDetailsPage = (props) => {
           <p className="article-details__date">{currentArticle.date}</p>
           <p className="article-details__text">{currentArticle.text}</p>
           <div className="article-details__box-links">
-            <a href="/#contact-page" className="article-details__contact-link article-details__contact-link-my-contacts">
+            <a href="/landing/#contact-page" className="article-details__contact-link article-details__contact-link-my-contacts">
               {t('myContacts')}
             </a>
-            <a href="/#services-page" className="article-details__contact-link article-details__contact-link-my-services">
+            <a href="/landing/#services-page" className="article-details__contact-link article-details__contact-link-my-services">
               {t('myServices')}
             </a>
           </div>

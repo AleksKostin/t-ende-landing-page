@@ -49,17 +49,23 @@
   }
 
   &__contacts {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: var(--text-color-opacity-08);
-    margin-top: var(--gap-small);
-    border: 2px solid var(--line-color);
-    border-radius: 150px;
-    padding: 20px 25px;
+    padding-top: var(--gap-small);
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.1) translate(25px);
       transition: transform 300ms;
+    }
+
+    &::before {
+      content: url('../../assets/icons/letter-icon.svg');
+      width: 17px;
+      height: 16px;
+      position: relative;
+      margin-right: 8px;
     }
   }
 

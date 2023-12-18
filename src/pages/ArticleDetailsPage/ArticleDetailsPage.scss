@@ -4,6 +4,7 @@
   align-items: center;
   align-content: center;
   background-color: var(--bg-secondary-color);
+  padding-top: calc(var(--gap-huge) - var(--gap-min));
 
   &__title {
     text-transform: uppercase;
@@ -166,6 +167,8 @@
   }
 
   .article-details {
+    padding-top: var(--gap-small);
+
     &__contact-link {
       margin-top: var(--gap-little);
       margin-bottom: var(--gap-normal);
