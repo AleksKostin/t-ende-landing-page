@@ -29,16 +29,16 @@ const Navbar = () => {
       <div className="content-wrapper header__content">
         <Label className="header__label" />
         <div className="header__links">
-          <a href="#services-page" className="header__link">
+          <a href="/#services-page" className="header__link">
             {t('services')}
           </a>
-          <a href="#articles-page" className="header__link">
+          <a href="/#articles-page" className="header__link">
             {t('articles')}
           </a>
-          <a href="#about-page" className="header__link">
+          <a href="/#about-page" className="header__link">
             {t('aboutMe')}
           </a>
-          <a href="#contact-page" className="header__link">
+          <a href="/#contact-page" className="header__link">
             {t('contacts')}
           </a>
         </div>
@@ -51,22 +51,22 @@ const Navbar = () => {
           </label>
           <ul ref={ref} className="menu__box">
             <li className="menu__item">
-              <a href="#services-page">
+              <a href="/#services-page">
                 {t('services')}
               </a>
             </li>
             <li className="menu__item">
-              <a href="#articles-page">
+              <a href="/#articles-page">
                 {t('articles')}
               </a>
             </li>
             <li className="menu__item">
-              <a href="#about-page">
+              <a href="/#about-page">
                 {t('aboutMe')}
               </a>
             </li>
             <li className="menu__item">
-              <a href="#contact-page">
+              <a href="/#contact-page">
                 {t('contacts')}
               </a>
             </li>

@@ -1,19 +1,22 @@
 import './SlidesList.scss';
 import Slide from 'components/Slide/Slide';
-import { useContext } from 'react';
-import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 import cn from 'classnames';
+import { useEffect } from 'react';
 
-const SlidesList = () => {
+const SlidesList = (props) => {
   const {
-    currentSlide,
-    prevSlide,
-    nextSlide,
+    currentItem,
+    prevItem,
+    nextItem,
     items,
     animationDirection,
-  } = useContext(SliderContext);
+  } = props;
 
   let animation = '';
+
+  useEffect(() => {
+    console.log(prevItem);
+  }, [prevItem]);
 
   if (animationDirection < 0) {
     animation = 'animation-left';
@@ -23,9 +26,13 @@ const SlidesList = () => {
 
   return (
     <div className={cn('slide-list', animation)}>
-      <Slide data={items[prevSlide]} />
-      <Slide data={items[currentSlide]} />
-      <Slide data={items[nextSlide]} />
+      {
+        prevItem || prevItem === 0 ? (
+          <Slide data={items[prevItem]} />
+        ) : null
+      }
+      <Slide data={items[currentItem]} />
+      <Slide data={items[nextItem]} />
     </div>
   );
 };

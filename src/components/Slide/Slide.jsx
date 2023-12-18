@@ -1,35 +1,32 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Spinner from 'components/Spinner/Spinner';
 import './Slide.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
-import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 
 const Slide = React.forwardRef((props, ref) => {
-  const { data } = props;
   const { t } = useTranslation();
   const {
+    data,
     isMobile,
-    isLoadedNewSlide,
-    setIsLoadedNewSlide,
-  } = useContext(SliderContext);
+  } = props;
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   const img = new Image();
   img.src = data.url;
-  img.onload = () => {
-    setIsLoaded(true);
-    setIsLoadedNewSlide(true);
-  };
+
+  useEffect(() => {
+    setIsLoaded(false);
+    img.onload = () => setIsLoaded(true);
+  }, [data]);
 
   return (
     data ? (
-      <Link ref={ref} href className="slide" target="_blank">
+      <Link ref={ref} to={`/article/${data.id}`} className="slide">
         {
-          isLoaded && isLoadedNewSlide
+          isLoaded
             ? <img className="slide__image" src={img.src} alt={data.title} />
             : (
               <div className="error slide__image">

@@ -9,12 +9,16 @@ const Footer = (props) => {
   return (
     <div className="footer">
       <div className="content-wrapper">
-        <p className="footer__rights">{data.paragraph}</p>
-        <div className="footer__designer">
-          <Logo />
-          <div className="footer__designer-contacts">
-            <p className="footer__text-developed">{t('websiteDeveloped')}</p>
-            <p className="footer__contact-developed">{t('instagramDesigner')}</p>
+        <div className="footer__box">
+          <div className="footer__content">
+            <p className="footer__rights">{data.paragraph}</p>
+            <div className="footer__designer">
+              <Logo />
+              <div className="footer__designer-contacts">
+                <p className="footer__text-developed">{t('websiteDeveloped')}</p>
+                <p className="footer__contact-developed">{t('instagramDesigner')}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
