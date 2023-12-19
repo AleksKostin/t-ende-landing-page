@@ -2,6 +2,8 @@ import './AboutPage.scss';
 import { useTranslation } from 'react-i18next';
 import { Element } from 'react-scroll';
 import avatar from 'assets/pictures/aboutPage-avatar.jpg';
+import { Link } from 'react-router-dom';
+import routs from 'config/routeConfig/routeConfig';
 
 const AboutPage = (props) => {
   const { data } = props;
@@ -23,9 +25,9 @@ const AboutPage = (props) => {
             <p className="about__contact-me">
               {data.contactMe}
             </p>
-            <a href="#contact-page" className="about__contacts">
+            <Link to={routs.contactPath} className="about__contacts">
               {t('myContacts')}
-            </a>
+            </Link>
           </div>
           <img src={avatar} alt="" className="about__img" />
         </div>

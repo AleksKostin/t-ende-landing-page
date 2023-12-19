@@ -9,6 +9,7 @@ import Spinner from 'components/Spinner/Spinner';
 import ContactPage from 'pages/ContactPage/ContactPage';
 import Footer from 'components/Footer/Footer';
 import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
+import routs from 'config/routeConfig/routeConfig';
 import JsonData from '../data/data.json';
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route
-            path="/landing/"
+            path={routs.mainPath}
             element={(
               <>
                 <MainPage data={landingPageData.mainPage} />
@@ -36,7 +37,7 @@ const App = () => {
             )}
           />
           <Route
-            path="/landing/article/:id"
+            path={`${routs.articlePath}:id`}
             element={(
               <Suspense fallback={<Spinner positionFixedCenter />}>
                 <ArticleDetailsPage data={landingPageData.articlesPage} />

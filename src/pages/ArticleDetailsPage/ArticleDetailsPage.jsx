@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ArticleDetailsPage.scss';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import { scroller } from 'react-scroll';
 import cn from 'classnames';
@@ -10,6 +10,7 @@ import Arrows from 'components/Arrows/Arrows';
 import Dots from 'components/Dots/Dots';
 import changeSlide from 'lib/changeSlide/changeSlide';
 import Slide from 'components/Slide/Slide';
+import routs from 'config/routeConfig/routeConfig';
 
 const INITIAL_SLIDE = 0;
 const INITIAL_NUMBER_SLIDES = 2;
@@ -129,12 +130,12 @@ const ArticleDetailsPage = (props) => {
           <p className="article-details__date">{currentArticle.date}</p>
           <p className="article-details__text">{currentArticle.text}</p>
           <div className="article-details__box-links">
-            <a href="/landing/#contact-page" className="article-details__contact-link article-details__contact-link-my-contacts">
+            <Link to={routs.contactPath} className="article-details__contact-link article-details__contact-link-my-contacts">
               {t('myContacts')}
-            </a>
-            <a href="/landing/#services-page" className="article-details__contact-link article-details__contact-link-my-services">
+            </Link>
+            <Link to={routs.servicesPath} className="article-details__contact-link article-details__contact-link-my-services">
               {t('myServices')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

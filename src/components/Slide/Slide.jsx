@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+import routs from 'config/routeConfig/routeConfig';
 
 const Slide = React.forwardRef((props, ref) => {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ const Slide = React.forwardRef((props, ref) => {
 
   return (
     data ? (
-      <Link ref={ref} to={`/landing/article/${data.id}`} className="slide">
+      <Link ref={ref} to={`${routs.articlePath}${data.id}`} className="slide">
         {
           isLoaded
             ? <img className="slide__image" src={img.src} alt={data.title} />
