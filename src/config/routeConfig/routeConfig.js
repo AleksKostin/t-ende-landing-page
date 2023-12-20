@@ -7,4 +7,5 @@ export default {
   aboutPath: [ROOT_PATH, '#about-page'].join('/'),
   contactPath: [ROOT_PATH, '#contact-page'].join('/'),
   articlePath: [ROOT_PATH, 'article/'].join('/'),
+  servicePath: [ROOT_PATH, 'service/'].join('/'),
 };

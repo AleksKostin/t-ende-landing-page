@@ -10,6 +10,7 @@ import ContactPage from 'pages/ContactPage/ContactPage';
 import Footer from 'components/Footer/Footer';
 import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
 import routs from 'config/routeConfig/routeConfig';
+import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
 import JsonData from '../data/data.json';
 
 const App = () => {
@@ -41,6 +42,14 @@ const App = () => {
             element={(
               <Suspense fallback={<Spinner positionFixedCenter />}>
                 <ArticleDetailsPage data={landingPageData.articlesPage} />
+              </Suspense>
+            )}
+          />
+          <Route
+            path={`${routs.servicePath}:id`}
+            element={(
+              <Suspense fallback={<Spinner positionFixedCenter />}>
+                <ServiceDetailsPage data={landingPageData.servicesPage} />
               </Suspense>
             )}
           />
