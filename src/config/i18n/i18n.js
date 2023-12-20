@@ -11,7 +11,7 @@ i18n
     lng: 'ru',
     fallbackLng: 'ru',
     backend: {
-      loadPath: './locales/{{lng}}/{{ns}}.json',
+      loadPath: '/landing/locales/{{lng}}/{{ns}}.json',
     },
 
     interpolation: {

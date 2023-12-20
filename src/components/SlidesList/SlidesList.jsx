@@ -1,17 +1,27 @@
 import './SlidesList.scss';
 import Slide from 'components/Slide/Slide';
-import { useContext } from 'react';
-import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
 
-const SlidesList = () => {
+const SlidesList = (props) => {
   const {
-    currentSlide,
-    prevSlide,
-    nextSlide,
+    currentItem,
+    prevItem,
+    nextItem,
     items,
     animationDirection,
-  } = useContext(SliderContext);
+  } = props;
+
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const preloadImages = items.map((item) => {
+      const img = new Image();
+      img.src = item.url;
+      return img;
+    });
+    setImages(preloadImages);
+  }, [items]);
 
   let animation = '';
 
@@ -21,11 +31,29 @@ const SlidesList = () => {
     animation = 'animation-right';
   }
 
+  const indexChainSlides = prevItem || prevItem === 0
+    ? [prevItem, currentItem, nextItem]
+    : [currentItem, nextItem];
+
+  const slides = indexChainSlides.map((indexSlide) => {
+    const indexChainLinkSlides = items.findIndex((_, index) => index === indexSlide);
+
+    if (indexChainLinkSlides >= 0) {
+      return (
+        <Slide
+          data={items[indexChainLinkSlides]}
+          key={items[indexChainLinkSlides].id}
+          image={images[indexChainLinkSlides]}
+        />
+      );
+    }
+
+    return null;
+  });
+
   return (
     <div className={cn('slide-list', animation)}>
-      <Slide data={items[prevSlide]} />
-      <Slide data={items[currentSlide]} />
-      <Slide data={items[nextSlide]} />
+      {slides}
     </div>
   );
 };

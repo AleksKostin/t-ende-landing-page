@@ -1,36 +1,27 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Spinner from 'components/Spinner/Spinner';
 import './Slide.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
-import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
+import routs from 'config/routeConfig/routeConfig';
 
 const Slide = React.forwardRef((props, ref) => {
-  const { data } = props;
   const { t } = useTranslation();
   const {
+    data,
     isMobile,
-    isLoadedNewSlide,
-    setIsLoadedNewSlide,
-  } = useContext(SliderContext);
+    image,
+  } = props;
 
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const img = new Image();
-  img.src = data.url;
-  img.onload = () => {
-    setIsLoaded(true);
-    setIsLoadedNewSlide(true);
-  };
+  const src = image ? image.src : data.url;
 
   return (
     data ? (
-      <Link ref={ref} href className="slide" target="_blank">
+      <Link ref={ref} to={`${routs.articlePath}${data.id}`} className="slide">
         {
-          isLoaded && isLoadedNewSlide
-            ? <img className="slide__image" src={img.src} alt={data.title} />
+          image
+            ? <img className="slide__image" src={src} alt={data.title} />
             : (
               <div className="error slide__image">
                 <Spinner />

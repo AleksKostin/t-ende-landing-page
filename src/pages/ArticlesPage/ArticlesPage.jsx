@@ -1,8 +1,5 @@
 import {
-  createContext,
-  useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -13,8 +10,9 @@ import Arrows from 'components/Arrows/Arrows';
 import Dots from 'components/Dots/Dots';
 import Slide from 'components/Slide/Slide';
 import cn from 'classnames';
+import { Element } from 'react-scroll';
+import changeSlide from 'lib/changeSlide/changeSlide';
 
-export const SliderContext = createContext();
 const INITIAL_SLIDE = 0;
 const INITIAL_NUMBER_SLIDES = 3;
 
@@ -27,7 +25,6 @@ const ArticlesPage = ({ data }) => {
   const [animationDirection, setAnimationDirection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
-  const [isLoadedNewSlide, setIsLoadedNewSlide] = useState(false);
   const newSlideRef = useRef(null);
 
   useEffect(() => {
@@ -49,26 +46,14 @@ const ArticlesPage = ({ data }) => {
     }
   }, [itemsDisplayed]);
 
-  const changeSlide = useCallback((direction = 1) => {
+  const handleChangeSlide = (direction) => {
     setAnimationDirection(null);
-    setIsLoadedNewSlide(false);
-    let currentSlideNumber = INITIAL_SLIDE;
-    let prevSlideNumber;
-    let nextSlideNumber;
 
-    if (slide + direction < INITIAL_SLIDE) {
-      currentSlideNumber = items.length - 1;
-      prevSlideNumber = currentSlideNumber - 1;
-      nextSlideNumber = (currentSlideNumber + 1) % items.length;
-    } else {
-      currentSlideNumber = (slide + direction) % items.length;
-      prevSlideNumber = (
-        currentSlideNumber === INITIAL_SLIDE
-          ? items.length - 1
-          : currentSlideNumber - 1
-      );
-      nextSlideNumber = (currentSlideNumber + 1) % items.length;
-    }
+    const {
+      currentSlideNumber,
+      prevSlideNumber,
+      nextSlideNumber,
+    } = changeSlide(direction, slide, items);
 
     setSlide(currentSlideNumber);
     setPrevSlide(prevSlideNumber);
@@ -81,31 +66,7 @@ const ArticlesPage = ({ data }) => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [slide, items.length]);
-
-  const dataSliderContext = useMemo(
-    () => ({
-      changeSlide,
-      currentSlide: slide,
-      prevSlide,
-      nextSlide,
-      items,
-      animationDirection,
-      isMobile,
-      isLoadedNewSlide,
-      setIsLoadedNewSlide,
-    }),
-    [
-      changeSlide,
-      animationDirection,
-      items,
-      nextSlide,
-      prevSlide,
-      slide,
-      isMobile,
-      isLoadedNewSlide,
-    ],
-  );
+  };
 
   const handleClick = () => {
     if (itemsDisplayed < items.length) {
@@ -119,6 +80,7 @@ const ArticlesPage = ({ data }) => {
         <Slide
           ref={index === itemsDisplayed - 1 ? newSlideRef : null}
           data={item}
+          isMobile={isMobile}
           key={item.id}
         />
       );
@@ -129,40 +91,50 @@ const ArticlesPage = ({ data }) => {
   return (
     <div className="articles">
       <div className="content-wrapper">
-        <h2 id="articles-page" className="articles__title">
-          {t('interestingTurkey')}
-        </h2>
+        <Element name="#articles-page">
+          <h2 id="articles-page" className="articles__title">
+            {t('interestingTurkey')}
+          </h2>
+        </Element>
         <div className="articles__slider">
-          <SliderContext.Provider
-            value={dataSliderContext}
-          >
-            {
-              !isMobile ? (
-                <>
-                  <SlidesList />
-                  <Arrows>
-                    <Dots />
-                  </Arrows>
-                </>
-              ) : (
-                <>
-                  {slides}
-                  {
-                    itemsDisplayed !== items.length ? (
-                      <button
-                        className={cn('btn', { hidden: !items.length })}
-                        type="button"
-                        onClick={() => handleClick()}
-                      >
-                        {t('showMore')}
-                      </button>
-                    )
-                      : null
-                  }
-                </>
-              )
-            }
-          </SliderContext.Provider>
+          {
+            !isMobile ? (
+              <>
+                <SlidesList
+                  currentItem={slide}
+                  prevItem={prevSlide}
+                  nextItem={nextSlide}
+                  items={items}
+                  animationDirection={animationDirection}
+                />
+                <Arrows
+                  items={items}
+                  onChangeItem={handleChangeSlide}
+                >
+                  <Dots
+                    items={items}
+                    activeItem={slide}
+                  />
+                </Arrows>
+              </>
+            ) : (
+              <>
+                {slides}
+                {
+                  itemsDisplayed !== items.length ? (
+                    <button
+                      className={cn('articles__btn', { hidden: !items.length })}
+                      type="button"
+                      onClick={() => handleClick()}
+                    >
+                      {t('showMore')}
+                    </button>
+                  )
+                    : null
+                }
+              </>
+            )
+          }
         </div>
       </div>
     </div>

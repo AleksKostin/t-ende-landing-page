@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { ReactComponent as Label } from 'assets/icons/label.svg';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import routs from 'config/routeConfig/routeConfig';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
 
 const Navbar = () => {
@@ -27,20 +29,22 @@ const Navbar = () => {
   return (
     <div id="header" className="header-wrapper">
       <div className="content-wrapper header__content">
-        <Label className="header__label" />
+        <Link to={routs.mainPath} className="header__label">
+          <Label />
+        </Link>
         <div className="header__links">
-          <a href="#services-page" className="header__link">
+          <Link to={routs.servicesPath} className="header__link">
             {t('services')}
-          </a>
-          <a href="#articles-page" className="header__link">
+          </Link>
+          <Link to={routs.articlesPath} className="header__link">
             {t('articles')}
-          </a>
-          <a href="#about-page" className="header__link">
+          </Link>
+          <Link to={routs.aboutPath} className="header__link">
             {t('aboutMe')}
-          </a>
-          <a href="#contact-page" className="header__link">
+          </Link>
+          <Link to={routs.contactPath} className="header__link">
             {t('contacts')}
-          </a>
+          </Link>
         </div>
         <LangSwitcher />
         <div className="menu">
@@ -51,24 +55,24 @@ const Navbar = () => {
           </label>
           <ul ref={ref} className="menu__box">
             <li className="menu__item">
-              <a href="#services-page">
+              <Link to={routs.servicesPath}>
                 {t('services')}
-              </a>
+              </Link>
             </li>
             <li className="menu__item">
-              <a href="#articles-page">
+              <Link to={routs.articlesPath}>
                 {t('articles')}
-              </a>
+              </Link>
             </li>
             <li className="menu__item">
-              <a href="#about-page">
+              <Link to={routs.aboutPath}>
                 {t('aboutMe')}
-              </a>
+              </Link>
             </li>
             <li className="menu__item">
-              <a href="#contact-page">
+              <Link to={routs.contactPath}>
                 {t('contacts')}
-              </a>
+              </Link>
             </li>
           </ul>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}

@@ -2,12 +2,14 @@ import { Suspense, useEffect, useState } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import MainPage from 'pages/MainPage/MainPage';
 import ServicesPage from 'pages/ServicesPage/ServicesPage';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AboutPage from 'pages/AboutPage/AboutPage';
 import ArticlesPage from 'pages/ArticlesPage/ArticlesPage';
 import Spinner from 'components/Spinner/Spinner';
 import ContactPage from 'pages/ContactPage/ContactPage';
 import Footer from 'components/Footer/Footer';
+import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
+import routs from 'config/routeConfig/routeConfig';
 import JsonData from '../data/data.json';
 
 const App = () => {
@@ -18,17 +20,34 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <div>
       <Suspense fallback={<Spinner positionFixedCenter />}>
         <Navbar />
-        <MainPage data={landingPageData.mainPage} />
-        <ServicesPage data={landingPageData.servicesPage} />
-        <AboutPage data={landingPageData.aboutPage} />
-        <ArticlesPage data={landingPageData.articlesPage} />
-        <ContactPage data={landingPageData.contactPage} />
+        <Routes>
+          <Route
+            path={routs.mainPath}
+            element={(
+              <>
+                <MainPage data={landingPageData.mainPage} />
+                <ServicesPage data={landingPageData.servicesPage} />
+                <AboutPage data={landingPageData.aboutPage} />
+                <ArticlesPage data={landingPageData.articlesPage} />
+                <ContactPage data={landingPageData.contactPage} />
+              </>
+            )}
+          />
+          <Route
+            path={`${routs.articlePath}:id`}
+            element={(
+              <Suspense fallback={<Spinner positionFixedCenter />}>
+                <ArticleDetailsPage data={landingPageData.articlesPage} />
+              </Suspense>
+            )}
+          />
+        </Routes>
         <Footer data={landingPageData.footer} />
       </Suspense>
-    </BrowserRouter>
+    </div>
   );
 };
 

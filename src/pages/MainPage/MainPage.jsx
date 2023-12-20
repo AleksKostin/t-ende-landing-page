@@ -8,6 +8,8 @@ import mainPageBgM from 'assets/pictures/mainPage-bg-m.jpg';
 import { ReactComponent as Instagram } from 'assets/icons/instagram.svg';
 import { ReactComponent as WhatsApp } from 'assets/icons/whatsApp.svg';
 import { ReactComponent as Telegram } from 'assets/icons/telegram.svg';
+import { useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const ANIMATION_SLIDER_DELAY = 7000;
 const ANIMATION_START_SLIDER_DELAY = 500;
@@ -18,9 +20,21 @@ const MainPage = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isStartedSlider, setIsStartedSlider] = useState(false);
+  const location = useLocation();
   const ref = useRef();
   let animationTurk;
   let animationRus;
+
+  useEffect(() => {
+    if (location.hash && isLoaded) {
+      scroller.scrollTo(location.hash, {
+        spy: true,
+        smooth: true,
+        duration: 100,
+      });
+    }
+    document.documentElement.dataset.page = 'main';
+  }, [location, isLoaded]);
 
   useEffect(() => {
     const img = new Image();

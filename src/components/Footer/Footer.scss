@@ -1,20 +1,40 @@
+:root[data-page="main"] {
+  --footer-text-align: start;
+  --footer-width-content: 100%;
+}
+
+:root[data-page="article"] {
+  --footer-text-align: center;
+  --footer-width-content: 70%;
+
+  @media (max-width: 1023px) {
+    --footer-width-content: 100%;
+  }
+}
+
 .footer {
-  display: flex;
-  justify-content: start;
-  flex-direction: column;
   padding: calc(var(--gap-huge) - var(--gap-min)) 0;
   margin-left: var(--gap-min);
+
+  &__box {
+    display: flex;
+    justify-content: var(--footer-text-align);
+  }
+
+  &__content {
+    width: var(--footer-width-content);
+  }
 
   &__designer {
     display: flex;
     gap: var(--gap-tiny);
     align-items: center;
+    align-self: flex-start;
   }
 
   &__rights {
     display: flex;
     white-space: pre-wrap;
-    width: 70%;
     color: var(--text-color-secondary);
     letter-spacing: var(--letter-spacing-014);
     line-height: var(--line-height-20);

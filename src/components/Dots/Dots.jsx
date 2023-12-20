@@ -1,18 +1,16 @@
 import './Dots.scss';
-import { useContext } from 'react';
-import { SliderContext } from 'pages/ArticlesPage/ArticlesPage';
 import cn from 'classnames';
 
-const Dots = () => {
+const Dots = (props) => {
   const {
     items,
-    currentSlide,
-  } = useContext(SliderContext);
+    activeItem,
+  } = props;
 
   const dotsItems = [...items].map((item, i) => (
     <div
       key={item.id}
-      className={cn('dot', { selected: i === currentSlide })}
+      className={cn('dot', { selected: i === activeItem })}
     />
   ));
 

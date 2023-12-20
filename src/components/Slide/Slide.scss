@@ -1,9 +1,9 @@
 .slide {
   display: flex;
   flex: 1 0 100%;
-  position: relative;
+  align-items: start;
+  justify-content: center;
   flex-direction: column;
-  height: 514px;
   max-width: clamp(20%, 30%,400px);
   background-color: var(--bg-color-service-wrapper);
   border: 1px solid var(--border-color);
@@ -35,28 +35,28 @@
     margin: 0;
     margin-top: var(--gap-bit);
     margin-left: var(--gap-small);
+    margin-bottom: var(--gap-little);
     font: var(--font-montserrat-m);
     color: var(--text-color-secondary);
   }
 
   &__text {
+    width: fit-content;
     margin: 0 var(--gap-small);
-    position: absolute;
     font: var(--font-montserrat-m);
     letter-spacing: 0.16px;
     font-weight: 100;
     color: var(--text-color-opacity-08);
-    bottom: var(--gap-big);
+    margin-bottom: var(--gap-tiny);
   }
 
   &__details {
-    position:absolute;
     font: var(--font-montserrat-medium-m);
     letter-spacing: 0.48px;
     font-weight: 400;
     margin: 0;
     margin-left: var(--gap-small);
-    bottom: var(--gap-small);
+    margin-bottom: var(--gap-small);
   }
 
   &:hover:not(.error) {

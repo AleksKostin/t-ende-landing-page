@@ -1,6 +1,7 @@
 import './ServicesPage.scss';
 import { useTranslation } from 'react-i18next';
 import ServiceItem from 'components/ServiceItem/ServiceItem';
+import { Element } from 'react-scroll';
 
 const ServicesPage = (props) => {
   const { data } = props;
@@ -9,9 +10,11 @@ const ServicesPage = (props) => {
   return (
     <div className="services">
       <div className="content-wrapper">
-        <h2 id="services-page" className="services__title">
-          {t('howCanIHelpYou')}
-        </h2>
+        <Element name="#services-page">
+          <h2 id="services-page" className="services__title">
+            {t('howCanIHelpYou')}
+          </h2>
+        </Element>
         <div className="services__content">
           {data?.blocks.map((block) => (
             <ServiceItem
