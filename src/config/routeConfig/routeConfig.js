@@ -1,8 +1,10 @@
+import { ROOT_PATH } from '../global';
+
 export default {
-  mainPath: ['/landing/'].join(),
-  servicesPath: ['/landing', '#services-page'].join('/'),
-  articlesPath: ['/landing', '#articles-page'].join('/'),
-  aboutPath: ['/landing', '#about-page'].join('/'),
-  contactPath: ['/landing', '#contact-page'].join('/'),
-  articlePath: ['/landing', 'article/'].join('/'),
+  mainPath: [`${ROOT_PATH}/`].join(),
+  servicesPath: [ROOT_PATH, '#services-page'].join('/'),
+  articlesPath: [ROOT_PATH, '#articles-page'].join('/'),
+  aboutPath: [ROOT_PATH, '#about-page'].join('/'),
+  contactPath: [ROOT_PATH, '#contact-page'].join('/'),
+  articlePath: [ROOT_PATH, 'article/'].join('/'),
 };

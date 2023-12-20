@@ -31,21 +31,23 @@ const SlidesList = (props) => {
     animation = 'animation-right';
   }
 
-  const numbItems = prevItem || prevItem === 0
+  const indexChainSlides = prevItem || prevItem === 0
     ? [prevItem, currentItem, nextItem]
     : [currentItem, nextItem];
 
-  const slides = numbItems.map((num) => {
-    const chainLinkSlide = items.findIndex((_, index) => index === num);
-    if (chainLinkSlide >= 0) {
+  const slides = indexChainSlides.map((indexSlide) => {
+    const indexChainLinkSlides = items.findIndex((_, index) => index === indexSlide);
+
+    if (indexChainLinkSlides >= 0) {
       return (
         <Slide
-          data={items[chainLinkSlide]}
-          key={items[chainLinkSlide].id}
-          image={images[chainLinkSlide]}
+          data={items[indexChainLinkSlides]}
+          key={items[indexChainLinkSlides].id}
+          image={images[indexChainLinkSlides]}
         />
       );
     }
+
     return null;
   });
 

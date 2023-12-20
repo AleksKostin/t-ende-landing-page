@@ -1,4 +1,3 @@
-/* eslint-disable no-extra-boolean-cast */
 import Spinner from 'components/Spinner/Spinner';
 import './Slide.scss';
 import { useTranslation } from 'react-i18next';
