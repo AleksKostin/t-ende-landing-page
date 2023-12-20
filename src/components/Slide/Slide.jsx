@@ -1,8 +1,9 @@
+/* eslint-disable no-extra-boolean-cast */
 import Spinner from 'components/Spinner/Spinner';
 import './Slide.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import routs from 'config/routeConfig/routeConfig';
 
@@ -11,24 +12,17 @@ const Slide = React.forwardRef((props, ref) => {
   const {
     data,
     isMobile,
+    image,
   } = props;
 
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const img = new Image();
-  img.src = data.url;
-
-  useEffect(() => {
-    setIsLoaded(false);
-    img.onload = () => setIsLoaded(true);
-  }, [data]);
+  const src = image ? image.src : data.url;
 
   return (
     data ? (
       <Link ref={ref} to={`${routs.articlePath}${data.id}`} className="slide">
         {
-          isLoaded
-            ? <img className="slide__image" src={img.src} alt={data.title} />
+          image
+            ? <img className="slide__image" src={src} alt={data.title} />
             : (
               <div className="error slide__image">
                 <Spinner />
