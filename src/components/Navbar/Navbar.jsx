@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import routs from 'config/routeConfig/routeConfig';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
 
-const Navbar = () => {
+const Navbar = ({ onDispatch }) => {
   const { t } = useTranslation();
   const [ref, inView] = useInView({
     threshold: 1,
@@ -46,7 +46,7 @@ const Navbar = () => {
             {t('contacts')}
           </Link>
         </div>
-        <LangSwitcher />
+        <LangSwitcher onDispatch={onDispatch} />
         <div className="menu">
           <input ref={refInput} id="menu-toggle" type="checkbox" onChange={handleChange} />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}

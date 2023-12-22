@@ -58,6 +58,7 @@
     &:hover {
       transform: scale(1.1) translate(25px);
       transition: transform 300ms;
+      text-decoration: underline;
     }
 
     &::before {

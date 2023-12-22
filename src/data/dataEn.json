@@ -1,0 +1,94 @@
+{
+  "mainPage": {
+    "paragraph": "I am Tatiana Ende.\nI have been living in Antalya for 20 years.\nI will be happy to take you into the world of Turkey!"
+  },
+  "servicesPage": {
+    "blocks": [
+      {
+        "id": "1",
+        "title": "Purchase of real estate",
+        "title-article": "Where and how to buy an apartment in Turkey?",
+        "paragraph": "Full support in the selection,\npurchase and registration of real estate\nownership",
+        "icon": "icons/property.svg",
+        "url": "/landing/images/real-estate-service.jpg",
+        "date": "19.07.2023",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode, Alison Leslie Gold, co-author of Miep's memoir, talks about their story and what we can learn from their stories. And we'll hear from the co-creators and the star of the National Geographic limited series Little Light about how everyone can step up and become a hero. National Geographic Little Light is about how everyone can step up and become a hero.\n\nFor more information about this episode, visit natgeo.com/overheard."
+      },
+      {
+        "id": "2",
+        "title": "Medical tourism",
+        "title-article": "How to start medical tourism to Turkey?",
+        "paragraph": "Assistance in the selection and\narrangement of tours for the purpose\nof a health program",
+        "icon": "icons/medical.svg",
+        "url": "/landing/images/medical-tourism-service.jpg",
+        "date": "19.07.2023",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode, Alison Leslie Gold, co-author of Miep's memoir, talks about their story and what we can learn from their stories. And we'll hear from the co-creators and the star of the National Geographic limited series Little Light about how everyone can step up and become a hero. National Geographic Little Light is about how everyone can step up and become a hero.\n\nFor more information about this episode, visit natgeo.com/overheard."
+      },
+      {
+        "id": "3",
+        "title": "Document preparation",
+        "title-article": "Help in completing documents.",
+        "paragraph": "Assistance in preparing documents\nrelated to obtaining a residence permit,\ncitizenship, health insurance and\nothers",
+        "icon": "icons/paperwork.svg",
+        "url": "/landing/images/real-estate-service.jpg",
+        "date": "19.07.2023",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode, Alison Leslie Gold, co-author of Miep's memoir, talks about their story and what we can learn from their stories. And we'll hear from the co-creators and the star of the National Geographic limited series Little Light about how everyone can step up and become a hero. National Geographic Little Light is about how everyone can step up and become a hero.\n\nFor more information about this episode, visit natgeo.com/overheard."
+      },
+      {
+        "id": "4",
+        "title": "Translation services",
+        "title-article": "Written and oral translation in any situation.",
+        "paragraph": "Written and oral translation in\nany situations",
+        "icon": "icons/translation.svg",
+        "url": "/landing/images/medical-tourism-service.jpg",
+        "date": "19.07.2023",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode, Alison Leslie Gold, co-author of Miep's memoir, talks about their story and what we can learn from their stories. And we'll hear from the co-creators and the star of the National Geographic limited series Little Light about how everyone can step up and become a hero. National Geographic Little Light is about how everyone can step up and become a hero.\n\nFor more information about this episode, visit natgeo.com/overheard."
+      }
+    ]
+  },
+  "aboutPage": {
+    "paragraph": "My name is Tatiana Ende.\n\nI have been living in Turkey, Antalya for 20 years. Married, two sons. I am fluent in Turkish and know almost everything about Antalya.\n\nI will be happy to help you with solving your issues related to tourism, relocation and adaptation in Turkey.",
+    "contactMe": "Contact me in any way convenient for you."
+  },
+  "articlesPage": {
+    "articles":[
+      {
+        "id": "1",
+        "title": "The most beautiful places in Antalya",
+        "date": "07.19.2023",
+        "paragraph": "Full support during selection, purchase and registration, balloon flights, balloon flights, this is very",
+        "url": "/landing/images/article-places.jpg",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode by Alison Leslie"
+      },
+      {
+        "id": "2",
+        "title": "Balloon flight is interesting",
+        "date": "19.07.2023",
+        "paragraph": "Full support during selection, purchase and registration, balloon flights, balloon flights, this is very",
+        "url": "/landing/images/article-balloon.jpg",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode by Alison Leslie"
+      },
+      {
+        "id": "3",
+        "title": "Beach season is open",
+        "date": "19.07.2023",
+        "paragraph": "Full support during selection, purchase and registration, balloon flights, balloon flights, this is very",
+        "url": "/landing/images/article-beach.jpg",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode by Alison Leslie"
+      },
+      {
+        "id": "4",
+        "title": "Balloon flight is interesting",
+        "date": "19.07.2023",
+        "paragraph": "Full support during selection, purchase and registration, balloon flights, balloon flights, this is very",        "url": "/landing/images/article-balloon.jpg",
+        "text": "The presidential election took place, Erdogan won, everyone is celebrating. Everyone is very happy, someone is not crazy. Most people have heard the name Anne Frank, and many have read her diary, which details the time she and her the family spent time on the run during the German occupation of Amsterdam during World War II. Less well known are Miep and Jan Gies, two men who helped shelter the Frank family and preserved Anne Frank's diary after she was captured. In this episode by Alison Leslie"
+      }
+    ]
+  },
+  "contactPage": {
+    "paragraph": "You can contact me in any way convenient for you using the contacts below.\n\nI will try to answer as quickly as possible."
+  },
+  "footer": {
+    "paragraph": "© 2023 Tatyana Ende. All rights reserved.\n\nAny use or copying of materials or a selection of site materials, design elements and design is permitted only with the permission of the copyright holder and only with reference to the source: www.tatyana.ende.com. The information presented on the site is not a public offer as defined by the provisions of Article 437 of the Civil Code of the Russian Federation. Please check availability and prices. The author has the right to change the characteristics of the product without prior notice."
+  }
+}
