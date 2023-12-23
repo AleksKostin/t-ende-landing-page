@@ -1,8 +1,5 @@
 import {
   Suspense,
-  useEffect,
-  useState,
-  useReducer,
 } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import MainPage from 'pages/MainPage/MainPage';
@@ -16,50 +13,27 @@ import Footer from 'components/Footer/Footer';
 import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
 import routs from 'config/routeConfig/routeConfig';
 import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
-import JsonDataRu from '../data/dataRu.json';
-import JsonDataEn from '../data/dataEn.json';
-
-const initialState = { lang: 'ru' };
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ru':
-      return { lang: 'ru' };
-    case 'en':
-      return { lang: 'en' };
-    default:
-      return state;
-  }
-};
+import useLocale from 'hooks/useLocale';
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    if (state.lang === 'ru') {
-      setLandingPageData(JsonDataRu);
-    } else {
-      setLandingPageData(JsonDataEn);
-    }
-  }, [state]);
+  const localeData = useLocale();
 
   return (
-    landingPageData
+    localeData?.mainPage
       ? (
         <div>
           <Suspense fallback={<Spinner positionFixedCenter />}>
-            <Navbar onDispatch={dispatch} />
+            <Navbar />
             <Routes>
               <Route
                 path={routs.mainPath}
                 element={(
                   <>
-                    <MainPage data={landingPageData.mainPage} />
-                    <ServicesPage data={landingPageData.servicesPage} />
-                    <AboutPage data={landingPageData.aboutPage} />
-                    <ArticlesPage data={landingPageData.articlesPage} />
-                    <ContactPage data={landingPageData.contactPage} />
+                    <MainPage data={localeData.mainPage} />
+                    <ServicesPage data={localeData.servicesPage} />
+                    <AboutPage data={localeData.aboutPage} />
+                    <ArticlesPage data={localeData.articlesPage} />
+                    <ContactPage data={localeData.contactPage} />
                   </>
                   )}
               />
@@ -67,7 +41,7 @@ const App = () => {
                 path={`${routs.articlePath}:id`}
                 element={(
                   <Suspense fallback={<Spinner positionFixedCenter />}>
-                    <ArticleDetailsPage data={landingPageData.articlesPage} />
+                    <ArticleDetailsPage data={localeData.articlesPage} />
                   </Suspense>
                   )}
               />
@@ -75,12 +49,12 @@ const App = () => {
                 path={`${routs.servicePath}:id`}
                 element={(
                   <Suspense fallback={<Spinner positionFixedCenter />}>
-                    <ServiceDetailsPage data={landingPageData.servicesPage} />
+                    <ServiceDetailsPage data={localeData.servicesPage} />
                   </Suspense>
                   )}
               />
             </Routes>
-            <Footer data={landingPageData.footer} />
+            <Footer data={localeData.footer} />
           </Suspense>
         </div>
       ) : <Spinner positionFixedCenter />
