@@ -19,12 +19,7 @@ const useLocale = () => {
   useEffect(() => {
     const { lang } = store;
 
-    if (lang === Locales.ru.lang) {
-      setLocale(JsonDataRu);
-    } else if (lang === Locales.en.lang) {
-      setLocale(JsonDataEn);
-    }
-
+    setLocale(localesDataList[lang]);
     i18n.changeLanguage(lang);
     document.documentElement.lang = lang;
   }, [store.lang]);

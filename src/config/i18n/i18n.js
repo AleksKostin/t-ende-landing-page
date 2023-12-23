@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     lng: clientLang,
-    fallbackLng: 'en',
+    fallbackLng: 'ru',
     backend: {
       loadPath: '/landing/locales/{{lng}}/{{ns}}.json',
     },

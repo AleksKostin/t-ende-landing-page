@@ -1,11 +1,9 @@
 import { initialState } from './initialState';
 
-const storeEvents = { lang: 'updateLocale' };
-
 class Store {
   constructor(defaultData) {
     this.state = defaultData;
-    this.events = storeEvents;
+    this.events = Object.keys(initialState);
   }
 
   get() {
@@ -17,12 +15,8 @@ class Store {
     this.state = { ...this.state, ...newState };
 
     // Уведомляем подписчиков о том, что состояние изменилось
-    Object.keys(newState).forEach((key) => {
-      const eventName = storeEvents[key];
-
-      if (eventName) {
-        window.dispatchEvent(new CustomEvent(eventName, { detail: this.state }));
-      }
+    Object.keys(newState).forEach((eventName) => {
+      window.dispatchEvent(new CustomEvent(eventName, { detail: this.state }));
     });
   }
 }

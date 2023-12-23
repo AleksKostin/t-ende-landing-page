@@ -9,14 +9,12 @@ const useStore = () => {
       updateStore(event.detail);
     };
 
-    // Подписываемся на события обновления стора
-    Object.values(Store.events).forEach((eventName) => {
+    Store.events.forEach((eventName) => {
       window.addEventListener(eventName, handleUpdate);
     });
 
-    // Отписываемся от событий при размонтировании компонента
     return () => {
-      Object.values(Store.events).forEach((eventName) => {
+      Store.events.forEach((eventName) => {
         window.removeEventListener(eventName, handleUpdate);
       });
     };
