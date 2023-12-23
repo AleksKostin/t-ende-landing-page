@@ -1,11 +1,11 @@
-import { Locales } from '../components/LangSwitcher/data';
+import { initialState } from './initialState';
 
-const events = { lang: 'updateLocale' };
-const initState = Locales.ru;
+const storeEvents = { lang: 'updateLocale' };
 
 class Store {
   constructor(defaultData) {
     this.state = defaultData;
+    this.events = storeEvents;
   }
 
   get() {
@@ -17,8 +17,8 @@ class Store {
     this.state = { ...this.state, ...newState };
 
     // Уведомляем подписчиков о том, что состояние изменилось
-    Object.keys(newState).forEach((event) => {
-      const eventName = events[event];
+    Object.keys(newState).forEach((key) => {
+      const eventName = storeEvents[key];
 
       if (eventName) {
         window.dispatchEvent(new CustomEvent(eventName, { detail: this.state }));
@@ -27,4 +27,4 @@ class Store {
   }
 }
 
-export default new Store(initState);
+export default new Store(initialState);
