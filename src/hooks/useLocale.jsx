@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { clientLang } from 'components/LangSwitcher/data';
 import JsonDataRu from '../data/dataRu.json';
 import JsonDataEn from '../data/dataEn.json';
 import { Locales } from '../components/LangSwitcher/data';
-import { clientLang } from '../app/initialState';
 
 const localesDataList = {
   [Locales.ru]: JsonDataRu,
