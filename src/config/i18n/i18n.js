@@ -13,7 +13,6 @@ i18n
     backend: {
       loadPath: '/landing/locales/{{lng}}/{{ns}}.json',
     },
-
     interpolation: {
       escapeValue: false,
     },

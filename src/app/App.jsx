@@ -1,8 +1,8 @@
 import {
   Suspense,
+  useContext,
   useEffect,
   useState,
-  useReducer,
 } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import MainPage from 'pages/MainPage/MainPage';
@@ -16,40 +16,36 @@ import Footer from 'components/Footer/Footer';
 import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
 import routs from 'config/routeConfig/routeConfig';
 import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
+import { I18nContext } from 'react-i18next';
 import JsonDataRu from '../data/dataRu.json';
 import JsonDataEn from '../data/dataEn.json';
 
-const initialState = { lang: 'ru' };
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ru':
-      return { lang: 'ru' };
-    case 'en':
-      return { lang: 'en' };
-    default:
-      return state;
-  }
-};
-
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { i18n } = useContext(I18nContext);
 
   useEffect(() => {
-    if (state.lang === 'ru') {
-      setLandingPageData(JsonDataRu);
-    } else {
-      setLandingPageData(JsonDataEn);
-    }
-  }, [state]);
+    const handleLanguageChange = () => {
+      if (i18n.language === 'ru') {
+        setLandingPageData(JsonDataRu);
+      } else {
+        setLandingPageData(JsonDataEn);
+      }
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   return (
     landingPageData
       ? (
         <div>
           <Suspense fallback={<Spinner positionFixedCenter />}>
-            <Navbar onDispatch={dispatch} />
+            <Navbar />
             <Routes>
               <Route
                 path={routs.mainPath}

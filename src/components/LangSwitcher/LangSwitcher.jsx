@@ -1,17 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import './LangSwitcher.scss';
 
-const LangSwitcher = ({ onDispatch }) => {
+const LangSwitcher = () => {
   const { t, i18n } = useTranslation();
 
   const onToggleRu = () => {
     i18n.changeLanguage('ru');
-    onDispatch({ type: 'ru' });
   };
 
   const onToggleEn = () => {
     i18n.changeLanguage('en');
-    onDispatch({ type: 'en' });
   };
 
   return (
