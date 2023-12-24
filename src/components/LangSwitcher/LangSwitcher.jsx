@@ -1,18 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import './LangSwitcher.scss';
-import useStore from '../../hooks/useStore';
 import { Locales } from './data';
 
 const LangSwitcher = () => {
-  const { t } = useTranslation();
-  const [, updateStore] = useStore();
+  const { t, i18n } = useTranslation();
 
   const onToggleRu = () => {
-    updateStore(Locales.ru);
+    i18n.changeLanguage(Locales.ru);
   };
 
   const onToggleEn = () => {
-    updateStore(Locales.en);
+    i18n.changeLanguage(Locales.en);
   };
 
   return (

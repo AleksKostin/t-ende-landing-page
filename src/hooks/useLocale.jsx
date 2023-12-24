@@ -3,28 +3,31 @@ import { useTranslation } from 'react-i18next';
 import JsonDataRu from '../data/dataRu.json';
 import JsonDataEn from '../data/dataEn.json';
 import { Locales } from '../components/LangSwitcher/data';
-import useStore from './useStore';
 import { clientLang } from '../app/initialState';
 
 const localesDataList = {
-  [Locales.ru.lang]: JsonDataRu,
-  [Locales.en.lang]: JsonDataEn,
+  [Locales.ru]: JsonDataRu,
+  [Locales.en]: JsonDataEn,
 };
 
 const useLocale = () => {
+  const [localeData, setLocaleData] = useState(localesDataList[clientLang]);
   const { i18n } = useTranslation();
-  const [locale, setLocale] = useState(localesDataList[clientLang]);
-  const [store] = useStore();
 
   useEffect(() => {
-    const { lang } = store;
+    const handleLanguageChange = () => {
+      setLocaleData(localesDataList[i18n.language]);
+      document.documentElement.lang = i18n.language;
+    };
 
-    setLocale(localesDataList[lang]);
-    i18n.changeLanguage(lang);
-    document.documentElement.lang = lang;
-  }, [store.lang]);
+    i18n.on('languageChanged', handleLanguageChange);
 
-  return locale;
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
+  return localeData;
 };
 
 export default useLocale;

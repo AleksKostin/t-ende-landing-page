@@ -9,14 +9,10 @@ const useStore = () => {
       updateStore(event.detail);
     };
 
-    Store.events.forEach((eventName) => {
-      window.addEventListener(eventName, handleUpdate);
-    });
+    window.addEventListener(Store.updateEvent, handleUpdate);
 
     return () => {
-      Store.events.forEach((eventName) => {
-        window.removeEventListener(eventName, handleUpdate);
-      });
+      window.removeEventListener(Store.updateEvent, handleUpdate);
     };
   }, []);
 
