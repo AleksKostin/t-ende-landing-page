@@ -1,4 +1,6 @@
-import { Suspense, useEffect, useState } from 'react';
+import {
+  Suspense,
+} from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import MainPage from 'pages/MainPage/MainPage';
 import ServicesPage from 'pages/ServicesPage/ServicesPage';
@@ -10,44 +12,52 @@ import ContactPage from 'pages/ContactPage/ContactPage';
 import Footer from 'components/Footer/Footer';
 import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
 import routs from 'config/routeConfig/routeConfig';
-import JsonData from '../data/data.json';
+import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
+import useLocale from 'hooks/useLocale';
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-
-  useEffect(() => {
-    setLandingPageData(JsonData);
-  }, []);
+  const localeData = useLocale();
 
   return (
-    <div>
-      <Suspense fallback={<Spinner positionFixedCenter />}>
-        <Navbar />
-        <Routes>
-          <Route
-            path={routs.mainPath}
-            element={(
-              <>
-                <MainPage data={landingPageData.mainPage} />
-                <ServicesPage data={landingPageData.servicesPage} />
-                <AboutPage data={landingPageData.aboutPage} />
-                <ArticlesPage data={landingPageData.articlesPage} />
-                <ContactPage data={landingPageData.contactPage} />
-              </>
-            )}
-          />
-          <Route
-            path={`${routs.articlePath}:id`}
-            element={(
-              <Suspense fallback={<Spinner positionFixedCenter />}>
-                <ArticleDetailsPage data={landingPageData.articlesPage} />
-              </Suspense>
-            )}
-          />
-        </Routes>
-        <Footer data={landingPageData.footer} />
-      </Suspense>
-    </div>
+    localeData?.mainPage
+      ? (
+        <div>
+          <Suspense fallback={<Spinner positionFixedCenter />}>
+            <Navbar />
+            <Routes>
+              <Route
+                path={routs.mainPath}
+                element={(
+                  <>
+                    <MainPage data={localeData.mainPage} />
+                    <ServicesPage data={localeData.servicesPage} />
+                    <AboutPage data={localeData.aboutPage} />
+                    <ArticlesPage data={localeData.articlesPage} />
+                    <ContactPage data={localeData.contactPage} />
+                  </>
+                  )}
+              />
+              <Route
+                path={`${routs.articlePath}:id`}
+                element={(
+                  <Suspense fallback={<Spinner positionFixedCenter />}>
+                    <ArticleDetailsPage data={localeData.articlesPage} />
+                  </Suspense>
+                  )}
+              />
+              <Route
+                path={`${routs.servicePath}:id`}
+                element={(
+                  <Suspense fallback={<Spinner positionFixedCenter />}>
+                    <ServiceDetailsPage data={localeData.servicesPage} />
+                  </Suspense>
+                  )}
+              />
+            </Routes>
+            <Footer data={localeData.footer} />
+          </Suspense>
+        </div>
+      ) : <Spinner positionFixedCenter />
   );
 };
 

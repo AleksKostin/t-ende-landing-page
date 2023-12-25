@@ -1,7 +1,7 @@
 {
   "rus": "RUS",
   "en": "EN",
-  "greetingTurk": "Hoş geldiniz!",
+  "greetingTurk": "HOŞ GELDINIZ!",
   "services": "Services",
   "articles": "Articles",
   "aboutMe": "About me",
@@ -13,10 +13,13 @@
   "showMore": "Show more",
   "location": "Türkiye, Antalya",
   "instagram": "Tatyana.Ende",
-  "email": " Tatyana.Ende@gmail.com ",
+  "email": " Tatyana.Ende@gmail.com",
   "whatsApp": "+90555-555-55-55",
   "websiteDeveloped": "Website developed",
   "instagramDesigner": "@mn.artdesign",
   "myServices": "My services",
-  "articleNotFound": "Article not found"
+  "articleNotFound": "Article not found",
+  "otherServices": "Other services",
+  "greetingRus": "Welcome to Turkey!",
+  "greetingRusSpaces": "Welcome\nto Turkey!"
 }

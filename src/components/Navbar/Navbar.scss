@@ -25,6 +25,7 @@
     &:hover {
       transform: perspective(10px) scale(1.1);
       transition: transform 300ms;
+      text-decoration: underline;
     }
   }
 
@@ -107,6 +108,10 @@
   &__item {
     display: block;
     padding: 12px 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__item > a {

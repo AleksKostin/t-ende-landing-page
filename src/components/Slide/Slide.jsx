@@ -20,7 +20,7 @@ const Slide = React.forwardRef((props, ref) => {
     data ? (
       <Link ref={ref} to={`${routs.articlePath}${data.id}`} className="slide">
         {
-          image
+          src
             ? <img className="slide__image" src={src} alt={data.title} />
             : (
               <div className="error slide__image">
