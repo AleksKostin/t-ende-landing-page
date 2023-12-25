@@ -3,7 +3,6 @@ import './ServiceDetailsPage.scss';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
-import { scroller } from 'react-scroll';
 import routs from 'config/routeConfig/routeConfig';
 
 const ServiceDetailsPage = (props) => {
@@ -14,11 +13,7 @@ const ServiceDetailsPage = (props) => {
 
   useEffect(() => {
     document.documentElement.dataset.page = 'article';
-    scroller.scrollTo('header', {
-      spy: true,
-      smooth: false,
-      duration: 0,
-    });
+    window.scrollTo(0, 0);
   }, [id]);
 
   const currentService = data.blocks.find((block) => (
@@ -44,7 +39,7 @@ const ServiceDetailsPage = (props) => {
             isLoaded
               ? <img className="service-details__image" src={img.src} alt={currentService.title} />
               : (
-                <div className="service-details__error_box">
+                <div className="service-details__spinner-box">
                   <Spinner />
                 </div>
               )

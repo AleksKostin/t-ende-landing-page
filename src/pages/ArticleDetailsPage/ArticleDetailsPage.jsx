@@ -3,7 +3,6 @@ import './ArticleDetailsPage.scss';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
-import { scroller } from 'react-scroll';
 import cn from 'classnames';
 import SlidesList from 'components/SlidesList/SlidesList';
 import Arrows from 'components/Arrows/Arrows';
@@ -30,11 +29,7 @@ const ArticleDetailsPage = (props) => {
 
   useEffect(() => {
     document.documentElement.dataset.page = 'article';
-    scroller.scrollTo('header', {
-      spy: true,
-      smooth: false,
-      duration: 0,
-    });
+    window.scrollTo(0, 0);
   }, [id]);
 
   useEffect(() => {
@@ -121,7 +116,7 @@ const ArticleDetailsPage = (props) => {
             isLoaded
               ? <img className="article-details__image" src={img.src} alt={currentArticle.title} />
               : (
-                <div className="article-details__error_box">
+                <div className="article-details__spinner_box">
                   <Spinner />
                 </div>
               )
