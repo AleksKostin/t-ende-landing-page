@@ -81,11 +81,14 @@
     color: var(--details-color);
     margin-top: var(--gap-medium);
     margin-bottom: var(--gap-big);
+    font: var(--font-montserrat-medium-m);
     font-size: clamp(var(--font-size-s), 2.5vw, var(--font-size-m));
 
     &:hover {
       transform: scale(1.1);
       transition: transform 300ms;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
   }
 
