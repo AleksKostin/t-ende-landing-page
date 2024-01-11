@@ -11,7 +11,7 @@ import { ReactComponent as Telegram } from 'assets/icons/telegram.svg';
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const ANIMATION_SLIDER_DELAY = 7000;
+const ANIMATION_SLIDER_DELAY = 3000;
 const ANIMATION_START_SLIDER_DELAY = 500;
 
 const MainPage = (props) => {
@@ -95,19 +95,19 @@ const MainPage = (props) => {
               href="#1"
               className="main-contacts__link"
             >
-              <Instagram />
+              <Instagram className="main-contacts__link-svg" />
             </a>
             <a
               href="#1"
               className="main-contacts__link"
             >
-              <WhatsApp />
+              <WhatsApp className="main-contacts__link-svg" />
             </a>
             <a
               href="#1"
               className="main-contacts__link"
             >
-              <Telegram />
+              <Telegram className="main-contacts__link-svg" />
             </a>
           </div>
         </div>

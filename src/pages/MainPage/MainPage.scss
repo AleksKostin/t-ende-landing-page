@@ -198,6 +198,10 @@
       transition: transform 350ms;
     }
   }
+
+  &__link-svg {
+    fill: var(--text-color-opacity-08);
+  }
 }
 
 @media (max-width: 850px) {
@@ -243,6 +247,9 @@
 
   .main-contacts__link {
     border-color: var(--line-color);
+  }
+
+  .main-contacts__link-svg {
     fill: var(--line-color);
   }
 

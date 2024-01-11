@@ -44,6 +44,7 @@
     outline: none;
     background-color: var(--bg-secondary-color);
     font-size: clamp(var(--font-size-s), 2.5vw, var(--font-size-m));
+    color: var(--details-color);
 
     &:hover {
       cursor: pointer;
@@ -53,7 +54,7 @@
 
     &::after {
       content: "";
-      background: url('/assets/icons/arrow-slider.svg');
+      background-image: url('/assets/icons/arrow-show-more.svg');
       background-position: center;
       background-size: cover;
       position: absolute;

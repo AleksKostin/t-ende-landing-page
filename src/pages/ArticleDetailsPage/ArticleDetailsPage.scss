@@ -78,7 +78,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--text-color-opacity-08);
+    color: var(--details-color);
     margin-top: var(--gap-medium);
     margin-bottom: var(--gap-big);
     font-size: clamp(var(--font-size-s), 2.5vw, var(--font-size-m));
@@ -122,6 +122,7 @@
     outline: none;
     background-color: var(--bg-secondary-color);
     font-size: clamp(var(--font-size-s), 2.5vw, var(--font-size-m));
+    color: var(--details-color);
 
     &:hover {
       cursor: pointer;
@@ -131,7 +132,7 @@
 
     &::after {
       content: "";
-      background: url('/assets/icons/arrow-slider.svg');
+      background: url('/assets/icons/arrow-show-more.svg');
       background-position: center;
       background-size: cover;
       position: absolute;

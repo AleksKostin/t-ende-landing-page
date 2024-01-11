@@ -62,8 +62,6 @@
     text-decoration: none;
     color: var(--text-color-opacity-08);
     margin-right: var(--gap-tiny);
-    fill: var(--line-color);
-    stroke: var(--line-color);
     gap: var(--gap-min);
     font: var(--font-montserrat-l);
     font-weight: 300;
@@ -75,6 +73,11 @@
       transition: transform 200ms;
       text-decoration: underline;
     }
+  }
+
+  &__link-img {
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -129,8 +132,17 @@
     ),
     url('/assets/pictures/contactPage-bg.jpg');
     background-size: 200%;
-    background-position: 55% -5%;
+    background-position: 55% 0%;
     flex-direction: column-reverse;
     padding: var(--gap-medium) 0;
+
+    &__link {
+      gap: var(--gap-tiny);
+    }
+  }
+
+  .contact__link-img {
+    width: 17px;
+    height: 17px;
   }
 }

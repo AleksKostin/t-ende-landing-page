@@ -39,6 +39,8 @@
     fill: var(--line-color);
     stroke: var(--line-color);
     cursor: pointer;
+    width: 46px;
+    height: 37px;
   }
 }
 
@@ -192,10 +194,8 @@
   }
 
   .header__label {
-    height: 26px;
+    height: 21px;
     width: 26px;
-    fill: var(--primary-color);
-    stroke: var(--primary-color);
   }
 
   .menu {

@@ -1,9 +1,9 @@
 import './ContactPage.scss';
 import { useTranslation } from 'react-i18next';
-import { ReactComponent as InstagramContactPage } from 'assets/icons/instagram.svg';
-import { ReactComponent as WhatsAppContactPage } from 'assets/icons/whatsApp.svg';
-import { ReactComponent as Location } from 'assets/icons/location.svg';
-import { ReactComponent as Email } from 'assets/icons/email.svg';
+import Instagram from 'assets/icons/instagram-contact-page.svg';
+import WhatsApp from 'assets/icons/whatsApp-contact-page.svg';
+import Location from 'assets/icons/location.svg';
+import Email from 'assets/icons/email.svg';
 import { Element } from 'react-scroll';
 
 const ContactPage = (props) => {
@@ -27,28 +27,28 @@ const ContactPage = (props) => {
               href="#1"
               className="contact__link"
             >
-              <Location />
+              <img src={Location} alt="Location" className="contact__link-img" />
               {t('location')}
             </a>
             <a
               href="#1"
               className="contact__link"
             >
-              <InstagramContactPage />
+              <img src={Instagram} alt="Instagram" className="contact__link-img" />
               {t('instagram')}
             </a>
             <a
               href="#1"
               className="contact__link"
             >
-              <Email />
+              <img src={Email} alt="Email" className="contact__link-img" />
               {t('email')}
             </a>
             <a
               href="#1"
               className="contact__link"
             >
-              <WhatsAppContactPage />
+              <img src={WhatsApp} alt="WhatsApp" className="contact__link-img" />
               {t('whatsApp')}
             </a>
           </div>
