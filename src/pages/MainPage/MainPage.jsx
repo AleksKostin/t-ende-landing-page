@@ -10,6 +10,7 @@ import { ReactComponent as WhatsApp } from 'assets/icons/whatsApp.svg';
 import { ReactComponent as Telegram } from 'assets/icons/telegram.svg';
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
+import { Helmet } from 'react-helmet';
 
 const ANIMATION_SLIDER_DELAY = 3000;
 const ANIMATION_START_SLIDER_DELAY = 500;
@@ -72,6 +73,9 @@ const MainPage = (props) => {
       id="main-page"
       className={classNames('main-intro', { 'main-intro_loaded': isLoaded })}
     >
+      <Helmet>
+        <title>{t('headerTitleMain')}</title>
+      </Helmet>
       <div className="content-wrapper">
         <div
           className={classNames('main-content', {

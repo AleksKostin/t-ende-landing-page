@@ -87,6 +87,7 @@
   }
 
   &__box {
+    visibility: hidden;
     display: block;
     padding: 0;
     position: absolute;

@@ -10,6 +10,7 @@ import Dots from 'components/Dots/Dots';
 import changeSlide from 'lib/changeSlide/changeSlide';
 import Slide from 'components/Slide/Slide';
 import routs from 'config/routeConfig/routeConfig';
+import { Helmet } from 'react-helmet';
 
 const INITIAL_SLIDE = 0;
 const INITIAL_NUMBER_SLIDES = 2;
@@ -107,6 +108,9 @@ const ArticleDetailsPage = (props) => {
 
   return (
     <div className="article-details">
+      <Helmet>
+        <title>{`${t('interestingTurkey')}. ${currentArticle.title}`}</title>
+      </Helmet>
       <div className="content-wrapper content-wrapper-flex">
         <h2 className="article-details__title">
           {t('interestingTurkey')}

@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [inView, isCheckboxChecked]);
 
   const handleChange = (e) => {
-    setIsCheckboxChecked(() => e.target.checked);
+    setIsCheckboxChecked(e.target.checked);
   };
 
   return (
