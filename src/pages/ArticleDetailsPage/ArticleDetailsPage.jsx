@@ -63,7 +63,7 @@ const ArticleDetailsPage = (props) => {
   ));
 
   if (!currentArticle) {
-    return <Navigate to="/*" state={{ originalUrl: location.pathname }} replace />;
+    return <Navigate to={`${routs.mainPath}*`} state={{ originalUrl: location.pathname }} replace />;
   }
 
   const img = new Image();
