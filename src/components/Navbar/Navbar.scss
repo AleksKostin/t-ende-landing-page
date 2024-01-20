@@ -191,7 +191,7 @@
   }
 
   .header__content {
-    height: 75px;
+    height: var(--navbar-height-mobile);
   }
 
   .header__label {

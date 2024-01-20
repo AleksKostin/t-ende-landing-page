@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import './ServiceDetailsPage.scss';
 import { useTranslation } from 'react-i18next';
-import { Link, useParams } from 'react-router-dom';
+import {
+  Link,
+  useParams,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import routs from 'config/routeConfig/routeConfig';
 import { Helmet } from 'react-helmet';
@@ -10,6 +15,7 @@ const ServiceDetailsPage = (props) => {
   const { data } = props;
   const { t } = useTranslation();
   const { id } = useParams();
+  const location = useLocation();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,7 +28,7 @@ const ServiceDetailsPage = (props) => {
   ));
 
   if (!currentService) {
-    return <div>{t('articleNotFound')}</div>;
+    return <Navigate to="/*" state={{ originalUrl: location.pathname }} replace />;
   }
 
   const img = new Image();
@@ -32,7 +38,7 @@ const ServiceDetailsPage = (props) => {
   return (
     <div className="service-details">
       <Helmet>
-        <title>{`${currentService.title}. ${currentService['title-article']}`}</title>
+        <title>{`${currentService['title-article']}`}</title>
       </Helmet>
       <div className="content-wrapper content-wrapper-flex">
         <h2 className="service-details__title">

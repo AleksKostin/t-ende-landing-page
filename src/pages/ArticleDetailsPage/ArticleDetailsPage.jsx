@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import './ArticleDetailsPage.scss';
 import { useTranslation } from 'react-i18next';
-import { Link, useParams } from 'react-router-dom';
+import {
+  Link,
+  Navigate,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import cn from 'classnames';
 import SlidesList from 'components/SlidesList/SlidesList';
@@ -27,6 +32,7 @@ const ArticleDetailsPage = (props) => {
   const [animationDirection, setAnimationDirection] = useState(null);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
   const newSlideRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.dataset.page = 'article';
@@ -57,7 +63,7 @@ const ArticleDetailsPage = (props) => {
   ));
 
   if (!currentArticle) {
-    return <div>{t('articleNotFound')}</div>;
+    return <Navigate to="/*" state={{ originalUrl: location.pathname }} replace />;
   }
 
   const img = new Image();
@@ -109,7 +115,7 @@ const ArticleDetailsPage = (props) => {
   return (
     <div className="article-details">
       <Helmet>
-        <title>{`${t('interestingTurkey')}. ${currentArticle.title}`}</title>
+        <title>{`${currentArticle.title}`}</title>
       </Helmet>
       <div className="content-wrapper content-wrapper-flex">
         <h2 className="article-details__title">

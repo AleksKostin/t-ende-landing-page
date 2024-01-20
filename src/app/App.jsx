@@ -14,9 +14,12 @@ import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
 import routs from 'config/routeConfig/routeConfig';
 import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
 import useLocale from 'hooks/useLocale';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import useFooterHeight from 'hooks/useFooterHeight';
 
 const App = () => {
   const localeData = useLocale();
+  const { footerHeight, ref } = useFooterHeight();
 
   return (
     localeData?.mainPage
@@ -53,8 +56,9 @@ const App = () => {
                   </Suspense>
                   )}
               />
+              <Route path="*" element={<NotFoundPage footerHeight={footerHeight} />} />
             </Routes>
-            <Footer data={localeData.footer} />
+            <Footer data={localeData.footer} ref={ref} />
           </Suspense>
         </div>
       ) : <Spinner positionFixedCenter />

@@ -22,5 +22,8 @@
   "otherServices": "Other services",
   "greetingRus": "Welcome to Turkey!",
   "greetingRusSpaces": "Welcome\nto Turkey!",
-  "headerTitleMain": "Real estate and medicine in Turkey - Tatiana Ende"
+  "headerTitleMain": "Real estate and medicine in Turkey - Tatiana Ende",
+  "errorNotFound": "404. Page not found",
+  "messageNotFound": "It may have been moved, or you simply entered the page address incorrectly.",
+  "linkToMain": "Go to Main page"
 }

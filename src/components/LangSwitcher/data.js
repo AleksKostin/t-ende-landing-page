@@ -3,4 +3,5 @@ export const Locales = {
   en: 'en',
 };
 
-export const clientLang = (navigator.language || navigator.userLanguage).slice(0, 2);
+export const clientLang = document.getElementById('root')
+  .hasChildNodes() ? (navigator.language || navigator.userLanguage).slice(0, 2) : Locales.ru;
