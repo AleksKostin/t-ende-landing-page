@@ -1,12 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ArticleDetailsPage.scss';
 import { useTranslation } from 'react-i18next';
-import {
-  Link,
-  Navigate,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import cn from 'classnames';
 import SlidesList from 'components/SlidesList/SlidesList';
@@ -15,7 +10,6 @@ import Dots from 'components/Dots/Dots';
 import changeSlide from 'lib/changeSlide/changeSlide';
 import Slide from 'components/Slide/Slide';
 import routs from 'config/routeConfig/routeConfig';
-import { Helmet } from 'react-helmet';
 
 const INITIAL_SLIDE = 0;
 const INITIAL_NUMBER_SLIDES = 2;
@@ -32,7 +26,6 @@ const ArticleDetailsPage = (props) => {
   const [animationDirection, setAnimationDirection] = useState(null);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
   const newSlideRef = useRef(null);
-  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.dataset.page = 'article';
@@ -61,10 +54,6 @@ const ArticleDetailsPage = (props) => {
   const currentArticle = items.find((item) => (
     item.id === id
   ));
-
-  if (!currentArticle) {
-    return <Navigate to={`${routs.mainPath}*`} state={{ originalUrl: location.pathname }} replace />;
-  }
 
   const img = new Image();
   img.src = currentArticle.url;
@@ -114,9 +103,6 @@ const ArticleDetailsPage = (props) => {
 
   return (
     <div className="article-details">
-      <Helmet>
-        <title>{`${currentArticle.title}`}</title>
-      </Helmet>
       <div className="content-wrapper content-wrapper-flex">
         <h2 className="article-details__title">
           {t('interestingTurkey')}

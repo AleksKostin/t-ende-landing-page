@@ -5,6 +5,14 @@
   transform: translate(-50%, 50%);
 }
 
+.center {
+  display: flex;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;

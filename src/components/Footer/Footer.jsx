@@ -1,14 +1,13 @@
 import './Footer.scss';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as Logo } from 'assets/icons/designerLogo.svg';
-import React from 'react';
 
-const Footer = React.forwardRef((props, ref) => {
+const Footer = (props) => {
   const { data } = props;
   const { t } = useTranslation();
 
   return (
-    <div className="footer" ref={ref}>
+    <div className="footer">
       <div className="content-wrapper">
         <div className="footer__box">
           <div className="footer__content">
@@ -27,6 +26,6 @@ const Footer = React.forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default Footer;

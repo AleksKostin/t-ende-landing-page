@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 import {
   Link,
   useParams,
-  Navigate,
-  useLocation,
 } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import routs from 'config/routeConfig/routeConfig';
@@ -15,7 +13,6 @@ const ServiceDetailsPage = (props) => {
   const { data } = props;
   const { t } = useTranslation();
   const { id } = useParams();
-  const location = useLocation();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -26,10 +23,6 @@ const ServiceDetailsPage = (props) => {
   const currentService = data.blocks.find((block) => (
     block.id === id
   ));
-
-  if (!currentService) {
-    return <Navigate to={`${routs.mainPath}*`} state={{ originalUrl: location.pathname }} replace />;
-  }
 
   const img = new Image();
   img.src = currentService.url;

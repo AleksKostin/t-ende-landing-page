@@ -1,8 +1,15 @@
+.root-not-found {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
 .not-found {
   background-color: var(--bg-secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 
   &__box {
     display: flex;
@@ -11,7 +18,7 @@
     justify-content: center;
   }
 
-  &__404 {
+  &__title {
     font: var(--font-hind-medium-xl);
     margin: 0;
     margin-bottom: var(--gap-normal);
@@ -40,7 +47,7 @@
 }
 
 @media (max-width: 620px) {
-  .not-found__404 {
+  .not-found__title {
     font-size: var(--font-size-xl-32);
   }
 
@@ -54,7 +61,7 @@
 }
 
 @media (max-width: 480px) {
-  .not-found__404 {
+  .not-found__title {
     font: var(--font-hind-medium-l);
   }
 

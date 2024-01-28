@@ -32,6 +32,6 @@ module.exports = {
     'react/prop-types': 'warn',
     'import/no-unresolved': 'off',
     'json/*': ['error', 'allowComments'],
-    // 'import/extensions': 0,
+    'import/prefer-default-export': 'warn',
   },
 };
