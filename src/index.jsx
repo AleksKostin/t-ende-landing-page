@@ -7,20 +7,20 @@ import App from './app/App';
 import i18n from './config/i18n/i18n';
 import { Locales } from './components/LangSwitcher/data';
 
-const rootElem = document.getElementById('root');
+export const rootElement = document.getElementById('root');
 let root = null;
 
 if (isRenderingOnClient) {
-  root = ReactDOM.hydrateRoot(rootElem);
-} else if (rootElem) {
-  root = ReactDOM.createRoot(rootElem);
+  root = ReactDOM.hydrateRoot(rootElement);
+} else if (rootElement) {
+  root = ReactDOM.createRoot(rootElement);
   i18n.changeLanguage(Locales.ru);
 } else {
   console.error('The root element is missing!');
-  const rootElemError = document.createElement('div');
-  rootElemError.id = 'root';
-  document.body.append(rootElemError);
-  root = ReactDOM.createRoot(rootElemError);
+  const rootElementNew = document.createElement('div');
+  rootElementNew.id = 'root';
+  document.body.append(rootElementNew);
+  root = ReactDOM.createRoot(rootElementNew);
   i18n.changeLanguage(Locales.ru);
 }
 

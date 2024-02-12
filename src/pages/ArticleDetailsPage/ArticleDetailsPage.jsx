@@ -10,8 +10,8 @@ import Dots from 'components/Dots/Dots';
 import changeSlide from 'lib/changeSlide/changeSlide';
 import Slide from 'components/Slide/Slide';
 import routs from 'config/routeConfig/routeConfig';
+import { Helmet } from 'react-helmet';
 
-const INITIAL_SLIDE = 0;
 const INITIAL_NUMBER_SLIDES = 2;
 
 const ArticleDetailsPage = (props) => {
@@ -21,11 +21,24 @@ const ArticleDetailsPage = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const items = data.articles;
-  const [slide, setSlide] = useState(INITIAL_SLIDE);
-  const [nextSlide, setNextSlide] = useState(slide + 1);
+  const [slide, setSlide] = useState(null);
+  const [nextSlide, setNextSlide] = useState(null);
   const [animationDirection, setAnimationDirection] = useState(null);
   const [itemsDisplayed, setItemsDisplayed] = useState(INITIAL_NUMBER_SLIDES);
   const newSlideRef = useRef(null);
+
+  const filteredItems = items.filter((item) => item.id !== id);
+
+  useEffect(() => {
+    let initialPrevSlide = filteredItems.findIndex((item) => item.id === String(Number(id) - 1));
+    initialPrevSlide = initialPrevSlide !== -1 ? initialPrevSlide : filteredItems.length - 1;
+
+    let initialNextSlide = filteredItems.findIndex((item) => item.id === String(Number(id) + 1));
+    initialNextSlide = initialNextSlide !== -1 ? initialNextSlide : 0;
+
+    setSlide(initialPrevSlide);
+    setNextSlide(initialNextSlide);
+  }, [id]);
 
   useEffect(() => {
     document.documentElement.dataset.page = 'article';
@@ -58,8 +71,6 @@ const ArticleDetailsPage = (props) => {
   const img = new Image();
   img.src = currentArticle.url;
   img.onload = () => setIsLoaded(true);
-
-  const filteredItems = items.filter((item) => item.id !== id);
 
   const handleChangeSlide = (direction) => {
     setAnimationDirection(null);
@@ -103,6 +114,9 @@ const ArticleDetailsPage = (props) => {
 
   return (
     <div className="article-details">
+      <Helmet>
+        <title>{currentArticle.title}</title>
+      </Helmet>
       <div className="content-wrapper content-wrapper-flex">
         <h2 className="article-details__title">
           {t('interestingTurkey')}

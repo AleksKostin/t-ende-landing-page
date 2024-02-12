@@ -23,7 +23,7 @@
     "deploy": "gh-pages -d build -r https://github.com/dmitriinazimov/landing.git",
     "start": "react-scripts start",
     "build": "rm -rf build && react-scripts build && shx cp build/index.html build/404.html",
-    "postbuild": "react-snap",
+    "postbuild": "react-snap --wait=5000",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

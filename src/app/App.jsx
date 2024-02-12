@@ -1,6 +1,4 @@
-import React, {
-  Suspense,
-} from 'react';
+import React from 'react';
 import MainPage from 'pages/MainPage/MainPage';
 import ServicesPage from 'pages/ServicesPage/ServicesPage';
 import {
@@ -13,20 +11,32 @@ import AboutPage from 'pages/AboutPage/AboutPage';
 import ArticlesPage from 'pages/ArticlesPage/ArticlesPage';
 import Spinner from 'components/Spinner/Spinner';
 import ContactPage from 'pages/ContactPage/ContactPage';
-import routs from 'config/routeConfig/routeConfig';
+import routes from 'config/routeConfig/routeConfig';
 import useLocale from 'hooks/useLocale';
 import Layout from 'layouts/Layout';
-import { ServiceDetailsPageAsync } from 'pages/ServiceDetailsPage/ServiceDetailsPage.async';
-import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage/ArticleDetailsPage.async';
-import { NotFoundPageAsync } from 'pages/NotFoundPage/NotFoundPage.async';
+import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
+import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 const App = () => {
   const localeData = useLocale();
 
+  const checkPageId = (data, id) => {
+    const currentItem = data.find((item) => (
+      item.id === id
+    ));
+
+    if (!currentItem) {
+      throw new Response('Not Found', { status: 404 });
+    }
+
+    return null;
+  };
+
   const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout />}>
       <Route
-        path={routs.mainPath}
+        path={routes.mainPath}
         element={(
           <>
             <MainPage data={localeData.mainPage} />
@@ -38,53 +48,25 @@ const App = () => {
         )}
       />
       <Route
-        path={`${routs.articlePath}:id`}
-        errorElement={<NotFoundPageAsync positionFixedCenter />}
-        loader={({ params }) => {
-          const items = localeData.articlesPage.articles;
-          const article = items.find((item) => (
-            item.id === params.id
-          ));
-
-          if (!article) {
-            throw new Response('Not Found', { status: 404 });
-          }
-
-          return null;
-        }}
+        path={`${routes.articlePath}:id`}
+        errorElement={<NotFoundPage />}
+        loader={({ params }) => checkPageId(localeData.articlesPage.articles, params.id)}
         element={(
-          <Suspense fallback={<Spinner positionCenter />}>
-            <ArticleDetailsPageAsync data={localeData.articlesPage} />
-          </Suspense>
+          <ArticleDetailsPage data={localeData.articlesPage} />
         )}
       />
       <Route
-        path={`${routs.servicePath}:id`}
-        errorElement={<NotFoundPageAsync />}
-        loader={({ params }) => {
-          const items = localeData.servicesPage.blocks;
-          const block = items.find((item) => (
-            item.id === params.id
-          ));
-
-          if (!block) {
-            throw new Response('Not Found', { status: 404 });
-          }
-
-          return null;
-        }}
+        path={`${routes.servicePath}:id`}
+        errorElement={<NotFoundPage />}
+        loader={({ params }) => checkPageId(localeData.servicesPage.blocks, params.id)}
         element={(
-          <Suspense fallback={<Spinner positionFixedCenter />}>
-            <ServiceDetailsPageAsync data={localeData.servicesPage} />
-          </Suspense>
+          <ServiceDetailsPage data={localeData.servicesPage} />
         )}
       />
       <Route
         path="*"
         element={(
-          <Suspense fallback={<Spinner positionFixedCenter />}>
-            <NotFoundPageAsync />
-          </Suspense>
+          <NotFoundPage />
         )}
       />
     </Route>,
