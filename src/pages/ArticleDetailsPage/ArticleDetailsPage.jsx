@@ -30,6 +30,9 @@ const ArticleDetailsPage = (props) => {
   const filteredItems = items.filter((item) => item.id !== id);
 
   useEffect(() => {
+    document.documentElement.dataset.page = 'footer-text-align-center';
+    window.scrollTo(0, 0);
+
     let initialPrevSlide = filteredItems.findIndex((item) => item.id === String(Number(id) - 1));
     initialPrevSlide = initialPrevSlide !== -1 ? initialPrevSlide : filteredItems.length - 1;
 
@@ -38,11 +41,6 @@ const ArticleDetailsPage = (props) => {
 
     setSlide(initialPrevSlide);
     setNextSlide(initialNextSlide);
-  }, [id]);
-
-  useEffect(() => {
-    document.documentElement.dataset.page = 'article';
-    window.scrollTo(0, 0);
   }, [id]);
 
   useEffect(() => {

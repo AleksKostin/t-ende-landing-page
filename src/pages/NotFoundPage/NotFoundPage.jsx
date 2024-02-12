@@ -10,7 +10,7 @@ const NotFoundPage = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.documentElement.dataset.page = 'article';
+    document.documentElement.dataset.page = 'footer-text-align-center';
 
     if (rootElement) {
       rootElement.classList.add('root-not-found');

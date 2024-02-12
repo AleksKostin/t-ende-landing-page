@@ -16,7 +16,7 @@ const ServiceDetailsPage = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dataset.page = 'article';
+    document.documentElement.dataset.page = 'footer-text-align-center';
     window.scrollTo(0, 0);
   }, [id]);
 

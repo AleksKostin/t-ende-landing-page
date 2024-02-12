@@ -22,9 +22,7 @@ const App = () => {
   const localeData = useLocale();
 
   const checkPageId = (data, id) => {
-    const currentItem = data.find((item) => (
-      item.id === id
-    ));
+    const currentItem = data.find((item) => item.id === id);
 
     if (!currentItem) {
       throw new Response('Not Found', { status: 404 });

@@ -34,7 +34,7 @@ const MainPage = (props) => {
         duration: 100,
       });
     }
-    document.documentElement.dataset.page = 'main';
+    document.documentElement.dataset.page = 'footer-text-align-start';
   }, [location, isLoaded]);
 
   useEffect(() => {

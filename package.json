@@ -23,10 +23,13 @@
     "deploy": "gh-pages -d build -r https://github.com/dmitriinazimov/landing.git",
     "start": "react-scripts start",
     "build": "rm -rf build && react-scripts build && shx cp build/index.html build/404.html",
-    "postbuild": "react-snap --wait=5000",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "reactSnap": {
+    "include": [ "/", "/article/4"]
+  },  
   "eslintConfig": {
     "extends": [
       "react-app",
