@@ -26,14 +26,16 @@
     margin-bottom: clamp(var(--gap-small), 30%, var(--gap-medium));
     display: flex;
     align-items: center;
-    
+    position: relative;
+    margin-left: var(--gap-small);
+
     &::before {
       content: "";
       background: var(--line-color);
       width: clamp(2px, 0.5vw, 4px);
-      height: clamp(30px, 10vw, 50px);
-      position: relative;
-      margin-right: var(--gap-small);
+      position: absolute;
+      height: 100%;
+      left: calc(var(--gap-small) * -1);
     }
   }
 
@@ -62,8 +64,6 @@
     text-decoration: none;
     color: var(--text-color-opacity-08);
     margin-right: var(--gap-tiny);
-    fill: var(--line-color);
-    stroke: var(--line-color);
     gap: var(--gap-min);
     font: var(--font-montserrat-l);
     font-weight: 300;
@@ -75,6 +75,11 @@
       transition: transform 200ms;
       text-decoration: underline;
     }
+  }
+
+  &__link-img {
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -95,6 +100,15 @@
     &__contacts-box {
       gap: var(--gap-min);
       margin-left: var(--gap-small);
+    }
+
+    &__title {
+      margin-bottom: var(--gap-small);
+      margin-left: var(--gap-min);
+  
+      &::before {
+        left: calc(var(--gap-min) * -1);
+      }
     }
   }
 
@@ -129,8 +143,17 @@
     ),
     url('/assets/pictures/contactPage-bg.jpg');
     background-size: 200%;
-    background-position: 55% -5%;
+    background-position: 55% 0%;
     flex-direction: column-reverse;
     padding: var(--gap-medium) 0;
+
+    &__link {
+      gap: var(--gap-tiny);
+    }
+  }
+
+  .contact__link-img {
+    width: 17px;
+    height: 17px;
   }
 }

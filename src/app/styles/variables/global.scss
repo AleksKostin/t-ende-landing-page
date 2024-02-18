@@ -56,9 +56,11 @@
   --text-color-secondary: #A6A6A6;
   --dot-color: #C6CFDD;
   --dot-color-selected: #071224;
+  --details-color: #E0B15C;
 
   // Sizes
   --navbar-height: 120px;
+  --navbar-height-mobile: 75px;
   --border-radius: 5px;
   --border-radius-8: 8px;
   --font-size-xs: 12px;
@@ -66,6 +68,7 @@
   --font-size-m: 16px;
   --font-size-l: 20px;
   --font-size-xl: 24px;
+  --font-size-xl-32: 32px;
   --font-size-xxl: 48px;
   --line-height-20: 20px;
   --line-height-25: 25px;
@@ -84,6 +87,8 @@
   --gap-small: 30px;
   --gap-normal: 40px;
   --gap-medium: 60px;
+  --gap-pre-big: 70px;
   --gap-big: 75px;
+  --gap-large: 100px;
   --gap-huge: 120px;
 }

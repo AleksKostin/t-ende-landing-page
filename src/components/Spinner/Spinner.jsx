@@ -1,7 +1,8 @@
+import cn from 'classnames';
 import './Spinner.scss';
 
-const Spinner = ({ positionFixedCenter }) => (
-  <div className={`lds-ellipsis ${positionFixedCenter ? 'fixed' : ''}`}>
+const Spinner = ({ positionFixedCenter, positionCenter }) => (
+  <div className={cn('lds-ellipsis', { fixed: positionFixedCenter, center: positionCenter })}>
     <div />
     <div />
     <div />

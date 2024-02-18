@@ -1,63 +1,79 @@
-import {
-  Suspense,
-} from 'react';
-import Navbar from 'components/Navbar/Navbar';
+import React from 'react';
 import MainPage from 'pages/MainPage/MainPage';
 import ServicesPage from 'pages/ServicesPage/ServicesPage';
-import { Route, Routes } from 'react-router-dom';
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 import AboutPage from 'pages/AboutPage/AboutPage';
 import ArticlesPage from 'pages/ArticlesPage/ArticlesPage';
 import Spinner from 'components/Spinner/Spinner';
 import ContactPage from 'pages/ContactPage/ContactPage';
-import Footer from 'components/Footer/Footer';
-import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
-import routs from 'config/routeConfig/routeConfig';
-import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
+import routes from 'config/routeConfig/routeConfig';
 import useLocale from 'hooks/useLocale';
+import Layout from 'layouts/Layout';
+import ServiceDetailsPage from 'pages/ServiceDetailsPage/ServiceDetailsPage';
+import ArticleDetailsPage from 'pages/ArticleDetailsPage/ArticleDetailsPage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 const App = () => {
   const localeData = useLocale();
 
+  const checkPageId = (data, id) => {
+    const currentItem = data.find((item) => item.id === id);
+
+    if (!currentItem) {
+      throw new Response('Not Found', { status: 404 });
+    }
+
+    return null;
+  };
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route element={<Layout />}>
+      <Route
+        path={routes.mainPath}
+        element={(
+          <>
+            <MainPage data={localeData.mainPage} />
+            <ServicesPage data={localeData.servicesPage} />
+            <AboutPage data={localeData.aboutPage} />
+            <ArticlesPage data={localeData.articlesPage} />
+            <ContactPage data={localeData.contactPage} />
+          </>
+        )}
+      />
+      <Route
+        path={`${routes.articlePath}:id`}
+        errorElement={<NotFoundPage />}
+        loader={({ params }) => checkPageId(localeData.articlesPage.articles, params.id)}
+        element={(
+          <ArticleDetailsPage data={localeData.articlesPage} />
+        )}
+      />
+      <Route
+        path={`${routes.servicePath}:id`}
+        errorElement={<NotFoundPage />}
+        loader={({ params }) => checkPageId(localeData.servicesPage.blocks, params.id)}
+        element={(
+          <ServiceDetailsPage data={localeData.servicesPage} />
+        )}
+      />
+      <Route
+        path="*"
+        element={(
+          <NotFoundPage />
+        )}
+      />
+    </Route>,
+  ));
+
   return (
     localeData?.mainPage
-      ? (
-        <div>
-          <Suspense fallback={<Spinner positionFixedCenter />}>
-            <Navbar />
-            <Routes>
-              <Route
-                path={routs.mainPath}
-                element={(
-                  <>
-                    <MainPage data={localeData.mainPage} />
-                    <ServicesPage data={localeData.servicesPage} />
-                    <AboutPage data={localeData.aboutPage} />
-                    <ArticlesPage data={localeData.articlesPage} />
-                    <ContactPage data={localeData.contactPage} />
-                  </>
-                  )}
-              />
-              <Route
-                path={`${routs.articlePath}:id`}
-                element={(
-                  <Suspense fallback={<Spinner positionFixedCenter />}>
-                    <ArticleDetailsPage data={localeData.articlesPage} />
-                  </Suspense>
-                  )}
-              />
-              <Route
-                path={`${routs.servicePath}:id`}
-                element={(
-                  <Suspense fallback={<Spinner positionFixedCenter />}>
-                    <ServiceDetailsPage data={localeData.servicesPage} />
-                  </Suspense>
-                  )}
-              />
-            </Routes>
-            <Footer data={localeData.footer} />
-          </Suspense>
-        </div>
-      ) : <Spinner positionFixedCenter />
+      ? <RouterProvider router={router} />
+      : <Spinner positionFixedCenter />
   );
 };
 

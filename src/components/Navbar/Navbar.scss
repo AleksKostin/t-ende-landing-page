@@ -39,6 +39,8 @@
     fill: var(--line-color);
     stroke: var(--line-color);
     cursor: pointer;
+    width: 46px;
+    height: 37px;
   }
 }
 
@@ -85,6 +87,7 @@
   }
 
   &__box {
+    visibility: hidden;
     display: block;
     padding: 0;
     position: absolute;
@@ -188,14 +191,12 @@
   }
 
   .header__content {
-    height: 75px;
+    height: var(--navbar-height-mobile);
   }
 
   .header__label {
-    height: 26px;
+    height: 21px;
     width: 26px;
-    fill: var(--primary-color);
-    stroke: var(--primary-color);
   }
 
   .menu {

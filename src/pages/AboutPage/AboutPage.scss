@@ -10,14 +10,16 @@
     margin-bottom: var(--gap-medium);
     display: flex;
     align-items: center;
+    position: relative;
+    margin-left: var(--gap-small);
 
     &::before {
       content: "";
       background: var(--line-color);
-      width: clamp(2px, 0.5vw, 4px);;
-      height: clamp(30px, 10vw, 50px);
-      position: relative;
-      margin-right: var(--gap-small);
+      width: clamp(2px, 0.5vw, 4px);
+      position: absolute;
+      height: 100%;
+      left: calc(var(--gap-small) * -1);
     }
   }
 
@@ -51,28 +53,30 @@
   &__contacts {
     display: flex;
     align-items: center;
+    width: fit-content;
     text-decoration: none;
-    color: var(--text-color-opacity-08);
+    color: var(--details-color);
     padding-top: var(--gap-small);
+    font: var(--font-montserrat-medium-m);
 
     &:hover {
-      transform: scale(1.1) translate(25px);
+      transform: scale(1.1);
       transition: transform 300ms;
       text-decoration: underline;
     }
 
     &::before {
       content: url('../../assets/icons/letter-icon.svg');
-      width: 17px;
-      height: 16px;
+      width: 16px;
+      height: 20px;
       position: relative;
-      margin-right: 8px;
+      margin-right: 11px;
     }
   }
 
   &__img {
-    width: clamp(150px, 30%, 435px);
-    height: clamp(150px, 40%, 435px);
+    width: clamp(200px, 30%, 435px);
+    height: clamp(200px, 40%, 435px);
     border: 1px solid opacity(0);
     border-radius: 50%;
   }
@@ -100,6 +104,15 @@
     padding: var(--gap-medium) 0;
   }
 
+  .about__title {
+    margin-bottom: var(--gap-small);
+    margin-left: var(--gap-min);
+
+    &::before {
+      left: calc(var(--gap-min) * -1);
+    }
+  }
+
   .about__content {
     width: 330px;
     margin: 0;
@@ -120,11 +133,12 @@
     margin-top: var(--gap-min);
     padding: 0;
     border: none;
+    font-size: var(--font-size-s);
 
     &::before {
       content: url('../../assets/icons/letter-icon.svg');
-      width: 17px;
-      height: 16px;
+      width: 16px;
+      height: 20px;
       position: relative;
       margin-right: 13px;
     }

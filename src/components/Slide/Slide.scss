@@ -53,10 +53,10 @@
   &__details {
     font: var(--font-montserrat-medium-m);
     letter-spacing: 0.48px;
-    font-weight: 400;
     margin: 0;
     margin-left: var(--gap-small);
     margin-bottom: var(--gap-small);
+    color: var(--details-color);
   }
 
   &:hover:not(.error) {
@@ -115,7 +115,8 @@
     }
 
     &:hover .slide__details {
-      transform: scale(1);
+      transform: scale(1.1);
+      transition: transform 150ms;
     }
   }
 
